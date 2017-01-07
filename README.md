@@ -51,6 +51,8 @@ is easy to launch a Gradle task or using a Terminal type:
 ./gradlew deployAndRun
 ```
 
+Console output from Idea:
+
 ```
 18:05:34: Executing external task 'deployAndRun'...
 :clean
@@ -89,66 +91,6 @@ ev3dev#131|2017-01-07 17:06:22 [main] DEBUG ev3dev.utils.Sysfs - cat /sys/class/
 ev3dev#131|2017-01-07 17:06:22 [main] INFO  hardware.sensors.ev3.TouchSensorDemo - Iteration: 5
 ev3dev#131|2017-01-07 17:06:22 [main] INFO  hardware.sensors.ev3.TouchSensorDemo - Touch: 0
 ev3dev#131|2017-01-07 17:06:22 [main] DEBUG lejos.utility.Delay - Delay: 500
-ev3dev#131|2017-01-07 17:06:23 [main] DEBUG ev3dev.utils.Sysfs - cat /sys/class/lego-sensor/sensor6/value0
-ev3dev#131|2017-01-07 17:06:23 [main] INFO  hardware.sensors.ev3.TouchSensorDemo - Iteration: 6
-ev3dev#131|2017-01-07 17:06:23 [main] INFO  hardware.sensors.ev3.TouchSensorDemo - Touch: 0
-ev3dev#131|2017-01-07 17:06:23 [main] DEBUG lejos.utility.Delay - Delay: 500
-ev3dev#131|2017-01-07 17:06:23 [main] DEBUG ev3dev.utils.Sysfs - cat /sys/class/lego-sensor/sensor6/value0
-ev3dev#131|2017-01-07 17:06:23 [main] INFO  hardware.sensors.ev3.TouchSensorDemo - Iteration: 7
-ev3dev#131|2017-01-07 17:06:23 [main] INFO  hardware.sensors.ev3.TouchSensorDemo - Touch: 0
-ev3dev#131|2017-01-07 17:06:23 [main] DEBUG lejos.utility.Delay - Delay: 500
-ev3dev#131|2017-01-07 17:06:24 [main] DEBUG ev3dev.utils.Sysfs - cat /sys/class/lego-sensor/sensor6/value0
-ev3dev#131|2017-01-07 17:06:24 [main] INFO  hardware.sensors.ev3.TouchSensorDemo - Iteration: 8
-ev3dev#131|2017-01-07 17:06:24 [main] INFO  hardware.sensors.ev3.TouchSensorDemo - Touch: 0
-ev3dev#131|2017-01-07 17:06:24 [main] DEBUG lejos.utility.Delay - Delay: 500
-ev3dev#131|2017-01-07 17:06:24 [main] DEBUG ev3dev.utils.Sysfs - cat /sys/class/lego-sensor/sensor6/value0
-ev3dev#131|2017-01-07 17:06:24 [main] INFO  hardware.sensors.ev3.TouchSensorDemo - Iteration: 9
-ev3dev#131|2017-01-07 17:06:24 [main] INFO  hardware.sensors.ev3.TouchSensorDemo - Touch: 0
-ev3dev#131|2017-01-07 17:06:24 [main] DEBUG lejos.utility.Delay - Delay: 500
-ev3dev#131|2017-01-07 17:06:25 [main] DEBUG ev3dev.utils.Sysfs - cat /sys/class/lego-sensor/sensor6/value0
-ev3dev#131|2017-01-07 17:06:25 [main] INFO  hardware.sensors.ev3.TouchSensorDemo - Iteration: 10
-ev3dev#131|2017-01-07 17:06:25 [main] INFO  hardware.sensors.ev3.TouchSensorDemo - Touch: 0
-ev3dev#131|2017-01-07 17:06:25 [main] DEBUG lejos.utility.Delay - Delay: 500
-ev3dev#131|2017-01-07 17:06:25 [main] DEBUG ev3dev.utils.Sysfs - cat /sys/class/lego-sensor/sensor6/value0
-ev3dev#131|2017-01-07 17:06:25 [main] INFO  hardware.sensors.ev3.TouchSensorDemo - Iteration: 11
-ev3dev#131|2017-01-07 17:06:26 [main] INFO  hardware.sensors.ev3.TouchSensorDemo - Touch: 0
-ev3dev#131|2017-01-07 17:06:26 [main] DEBUG lejos.utility.Delay - Delay: 500
-ev3dev#131|2017-01-07 17:06:26 [main] DEBUG ev3dev.utils.Sysfs - cat /sys/class/lego-sensor/sensor6/value0
-ev3dev#131|2017-01-07 17:06:26 [main] INFO  hardware.sensors.ev3.TouchSensorDemo - Iteration: 12
-ev3dev#131|2017-01-07 17:06:26 [main] INFO  hardware.sensors.ev3.TouchSensorDemo - Touch: 0
-ev3dev#131|2017-01-07 17:06:26 [main] DEBUG lejos.utility.Delay - Delay: 500
-ev3dev#131|2017-01-07 17:06:27 [main] DEBUG ev3dev.utils.Sysfs - cat /sys/class/lego-sensor/sensor6/value0
-ev3dev#131|2017-01-07 17:06:27 [main] INFO  hardware.sensors.ev3.TouchSensorDemo - Iteration: 13
-ev3dev#131|2017-01-07 17:06:27 [main] INFO  hardware.sensors.ev3.TouchSensorDemo - Touch: 0
-ev3dev#131|2017-01-07 17:06:27 [main] DEBUG lejos.utility.Delay - Delay: 500
-ev3dev#131|2017-01-07 17:06:27 [main] DEBUG ev3dev.utils.Sysfs - cat /sys/class/lego-sensor/sensor6/value0
-ev3dev#131|2017-01-07 17:06:27 [main] INFO  hardware.sensors.ev3.TouchSensorDemo - Iteration: 14
-ev3dev#131|2017-01-07 17:06:27 [main] INFO  hardware.sensors.ev3.TouchSensorDemo - Touch: 0
-ev3dev#131|2017-01-07 17:06:27 [main] DEBUG lejos.utility.Delay - Delay: 500
-ev3dev#131|2017-01-07 17:06:28 [main] DEBUG ev3dev.utils.Sysfs - cat /sys/class/lego-sensor/sensor6/value0
-ev3dev#131|2017-01-07 17:06:28 [main] INFO  hardware.sensors.ev3.TouchSensorDemo - Iteration: 15
-ev3dev#131|2017-01-07 17:06:28 [main] INFO  hardware.sensors.ev3.TouchSensorDemo - Touch: 0
-ev3dev#131|2017-01-07 17:06:28 [main] DEBUG lejos.utility.Delay - Delay: 500
-ev3dev#131|2017-01-07 17:06:28 [main] DEBUG ev3dev.utils.Sysfs - cat /sys/class/lego-sensor/sensor6/value0
-ev3dev#131|2017-01-07 17:06:28 [main] INFO  hardware.sensors.ev3.TouchSensorDemo - Iteration: 16
-ev3dev#131|2017-01-07 17:06:28 [main] INFO  hardware.sensors.ev3.TouchSensorDemo - Touch: 0
-ev3dev#131|2017-01-07 17:06:28 [main] DEBUG lejos.utility.Delay - Delay: 500
-ev3dev#131|2017-01-07 17:06:29 [main] DEBUG ev3dev.utils.Sysfs - cat /sys/class/lego-sensor/sensor6/value0
-ev3dev#131|2017-01-07 17:06:29 [main] INFO  hardware.sensors.ev3.TouchSensorDemo - Iteration: 17
-ev3dev#131|2017-01-07 17:06:29 [main] INFO  hardware.sensors.ev3.TouchSensorDemo - Touch: 0
-ev3dev#131|2017-01-07 17:06:29 [main] DEBUG lejos.utility.Delay - Delay: 500
-ev3dev#131|2017-01-07 17:06:29 [main] DEBUG ev3dev.utils.Sysfs - cat /sys/class/lego-sensor/sensor6/value0
-ev3dev#131|2017-01-07 17:06:29 [main] INFO  hardware.sensors.ev3.TouchSensorDemo - Iteration: 18
-ev3dev#131|2017-01-07 17:06:29 [main] INFO  hardware.sensors.ev3.TouchSensorDemo - Touch: 0
-ev3dev#131|2017-01-07 17:06:29 [main] DEBUG lejos.utility.Delay - Delay: 500
-ev3dev#131|2017-01-07 17:06:30 [main] DEBUG ev3dev.utils.Sysfs - cat /sys/class/lego-sensor/sensor6/value0
-ev3dev#131|2017-01-07 17:06:30 [main] INFO  hardware.sensors.ev3.TouchSensorDemo - Iteration: 19
-ev3dev#131|2017-01-07 17:06:30 [main] INFO  hardware.sensors.ev3.TouchSensorDemo - Touch: 0
-ev3dev#131|2017-01-07 17:06:30 [main] DEBUG lejos.utility.Delay - Delay: 500
-ev3dev#131|2017-01-07 17:06:30 [main] DEBUG ev3dev.utils.Sysfs - cat /sys/class/lego-sensor/sensor6/value0
-ev3dev#131|2017-01-07 17:06:30 [main] INFO  hardware.sensors.ev3.TouchSensorDemo - Iteration: 20
-ev3dev#131|2017-01-07 17:06:30 [main] INFO  hardware.sensors.ev3.TouchSensorDemo - Touch: 0
-ev3dev#131|2017-01-07 17:06:30 [main] DEBUG lejos.utility.Delay - Delay: 500
 :deployAndRun
 ``` 
 
