@@ -38,3 +38,16 @@ Java HotSpot(TM) Embedded Client VM (build 25.0-b70, mixed mode)
 ``` 
 sudo apt-get install libopencv2.4-java
 ```
+
+To run an application with OpenCV has to indicate JVM some information about OpenCV native installation:
+
+```
+find / -name "libopencv_java249.so"
+/usr/lib/jni/libopencv_java249.so
+java -Djava.library.path=/usr/lib/jni/ -cp examples-all-0.1.0.jar:/usr/share/OpenCV/java/opencv-249.jarjava -Djava.library.path=/usr/lib/jni/ -cp examples-all-0.1.0.jar:/usr/share/OpenCV/java/opencv-249.jar opencv/HelloWorldCV
+2017-01-07 19:22:54 [main] INFO  opencv.HelloWorldCV - Welcome to OpenCV 2.4.9.0
+2017-01-07 19:22:55 [main] INFO  opencv.HelloWorldCV - /usr/lib/jni/
+2017-01-07 19:23:02 [main] INFO  opencv.HelloWorldCV - m = [1, 0, 0;
+  0, 1, 0;
+  0, 0, 1]
+``  
