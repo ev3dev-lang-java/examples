@@ -3,80 +3,13 @@
 This repository store a set of examples ready to use with the 
 ev3dev-lang-java libraries.
  
-# [Getting Started on your computer](./docs/GettingStartedLaptop.md)
+# [1. Getting Started on your computer](./docs/GettingStartedLaptop.md)
 
-# Getting Started on your Brick.
+# [2. Getting Started on your Brick](./docs/GettingStartedBrick.md)
 
-## 1. Install EV3Dev on your brick
+# 3. Using the project to learn the API by examples
 
-The first step is the creation of an image of EV3Dev with latest version 
-of this project.
-
-To complete this step, read the following tutorial: http://www.ev3dev.org/docs/getting-started/
-
-## 2. Install Java 8 on your brick
-
-To install Java 8 on a EV3 Brick with EV3Dev, follow the steps.
-
-**Download Java 8 jre from Oracle:**
-
-[http://www.oracle.com/technetwork/java/embedded/downloads/javase/javaseemeddedev3-1982511.html](http://www.oracle.com/technetwork/java/embedded/downloads/javase/javaseemeddedev3-1982511.html)
-
-**Copy the zip from your laptop to your brick:**
-
-```
-scp ejdk-8-fcs-b132-linux-arm-sflt-03_mar_2014.gz robot@EV3_IP:/home/robot/
-sudo tar zxvf ejdk-8-fcs-b132-linux-arm-sflt-03_mar_2014.gz -C /opt
-sudo update-alternatives --install /usr/bin/java java /opt/ejdk1.8.0/linux_arm_sflt/jre/bin/java 1
-java -version
-``
-
-After the installation, you should have the following result:
-
-``
-robot@ev3dev:~$ java -version
-java version "1.8.0"
-Java(TM) SE Embedded Runtime Environment (build 1.8.0-b132, headless)
-Java HotSpot(TM) Embedded Client VM (build 25.0-b70, mixed mode)
-```
-
-### 2.1 Install OpenCV for Java
-
-``` 
-sudo apt-get install libopencv2.4-java
-```
-
-## 3. Create your first project with ev3dev-lang-java
-
-### 3.1 Adding ev3dev-lang-java as a dependency
-
-Modern Java software use a build file. In the market the 
-most popular build system for Java are Maven & Gradle. 
-
-This repository store all examples in a Java project using a Gradle 
-file.
-
-ev3dev-lang-java is possible to be used in Maven/Gradle adding as a
- dependency:
-
-```
-allprojects {
-    repositories {
-        maven { url 'https://jitpack.io' }
-    }
-}
- 	
-dependencies {
-    compile 'com.github.ev3dev-lang-java:ev3dev-lang-java:v0.3.0'
-}
- 	
-```
-
-Further information to import the library here:  
-https://jitpack.io/#ev3dev-lang-java/ev3dev-lang-java/v0.3.0 
-
-### 3.2 Define a Manifest to launch a jar file with a specific Main 
-class
+## 3.1 Update the manifest a specify the example to run on your brick.
 
 This repository has a Manifest.mf file with details about how to 
 execute the examples in the brick:
@@ -89,39 +22,34 @@ Implementation-Vendor: Juan Antonio Breña Moral
 Main-Class: hardware.sensors.ev3.TouchSensorDemo
 ```
 
-### 3.3 Update logback.xml to show/hide log messages
+Change the name of the class that you want to test on your brick. Idea 
+has a good integration with Manifest files.
 
-ev3dev-lang-java has log support to help the developer to debug 
-the software and the interaction with EV3Dev.
+## 3.2 Review that your Brick has a Wifi connection and update gradle
+settings
 
-``` xml
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
+Review that your Brick has a Wifi Connection and update the settings 
+on your Gradle file:
 
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <Pattern>
-                %d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n
-            </Pattern>
-        </encoder>
-    </appender>
+```
+remotes {
+    ev3dev {
+        host = '192.168.1.2'
+        user = 'robot'
+        password = 'maker'
+    }
+}
+```
 
-    <logger name="ch.qos.logback.core" level="OFF" />
-    <logger name="ev3dev.hardware" level="DEBUG" />
-
-    <root level="DEBUG">
-        <appender-ref ref="STDOUT" />
-    </root>
-
-</configuration>
-``` 
-
-Edit the file to change log levels.
- 
-### Execute one example.
+## 3.3 Execute one example.
 
 Using the project, execute the task "deployAndRun" to generate a 
-FatJar about the project and send remotely to your brick.
+FatJar about the project and send remotely to your brick. With Idea 
+is easy to launch a Gradle task or using a Terminal type:
+
+```
+./gradlew deployAndRun
+```
 
 ```
 18:05:34: Executing external task 'deployAndRun'...
@@ -223,6 +151,38 @@ ev3dev#131|2017-01-07 17:06:30 [main] INFO  hardware.sensors.ev3.TouchSensorDemo
 ev3dev#131|2017-01-07 17:06:30 [main] DEBUG lejos.utility.Delay - Delay: 500
 :deployAndRun
 ``` 
+
+# 4 Advanced topics
+
+### 4.1 Update logback.xml to show/hide log messages
+
+ev3dev-lang-java has log support to help the developer to debug 
+the software and the interaction with EV3Dev.
+
+``` xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>
+                %d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n
+            </Pattern>
+        </encoder>
+    </appender>
+
+    <logger name="ch.qos.logback.core" level="OFF" />
+    <logger name="ev3dev.hardware" level="DEBUG" />
+
+    <root level="DEBUG">
+        <appender-ref ref="STDOUT" />
+    </root>
+
+</configuration>
+``` 
+
+Edit the file to change log levels.
+
 
 
 

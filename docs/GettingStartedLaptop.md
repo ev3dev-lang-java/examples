@@ -39,3 +39,8 @@ https://www.sourcetreeapp.com/
 Install a Java IDE to use this repository with examples about 
 ev3dev-lang-java.
 https://www.jetbrains.com/idea/
+
+### 1.5 Download the repository on your computer
+
+Using SourceTree, try to donwload the repository on local. The address 
+about the repository is: https://github.com/ev3dev-lang-java/ev3dev-lang-java.git
