@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Implementation-Title: EV3Dev-lang-java
+Implementation-Title: EV3Dev-lang-java / examples
 Implementation-Version: 0.3.0
 Implementation-Vendor: Juan Antonio Breña Moral
 Main-Class: hardware.sensors.ev3.TouchSensorDemo
