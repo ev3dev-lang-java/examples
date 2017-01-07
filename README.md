@@ -3,7 +3,7 @@
 This repository store a set of examples ready to use with the 
 ev3dev-lang-java libraries.
  
-# ![Getting Started on your computer](./docs/GettingStartedLaptop.md)
+# [Getting Started on your computer](./docs/GettingStartedLaptop.md)
 
 # Getting Started on your Brick.
 
