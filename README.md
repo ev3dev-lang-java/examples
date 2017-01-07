@@ -3,47 +3,7 @@
 This repository store a set of examples ready to use with the 
 ev3dev-lang-java libraries.
  
-# Getting Started on your computer
-
-## 1. Install/Update your development environment
-
-### 1.1 Install Java
-
-To begin any Java development, you need to be installed Java. 
-
-**OSX:**
-
-```
-brew update
-brew tap caskroom/cask
-brew install Caskroom/cask/java
-```
-
-Further information about Java: https://www.java.com/es/about/whatis_java.jsp
-
-### 1.2 Install Maven/Gradle
-
-**OSX:**
-
-```
-brew install maven
-brew install gradle
-```
-
-Further information about Maven & Gradle:
-https://maven.apache.org/
-https://gradle.org/
-
-### 1.3 Install a Git Client
-
-Install a visual Git Client to download this repository.
-https://www.sourcetreeapp.com/
-
-### 1.4 Install a Java IDE
-
-Install a Java IDE to use this repository with examples about 
-ev3dev-lang-java.
-https://www.jetbrains.com/idea/
+# ![Getting Started on your computer](./docs/GettingStartedLaptop.md)
 
 # Getting Started on your Brick.
 
