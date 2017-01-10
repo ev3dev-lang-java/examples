@@ -7,6 +7,18 @@ of this project.
 
 To complete this step, read the following tutorial: http://www.ev3dev.org/docs/getting-started/
 
+### 1.1 Update distro
+
+Check if your EV3Brick with EV3Dev need some upgrade:
+
+``` bash
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get dist-upgrade
+sudo reboot
+```
+
+
 ## 2. Install Java 8 on your brick
 
 To install Java 8 on a EV3 Brick with EV3Dev, follow the steps.
