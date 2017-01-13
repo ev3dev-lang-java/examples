@@ -21,6 +21,8 @@ sudo reboot
 
 ## 2. Install Java 8 on your brick
 
+### 2.1 Install Java 8 on EV3 Brick
+
 To install Java 8 on a EV3 Brick with EV3Dev, follow the steps.
 
 **Download Java 8 jre from Oracle:**
@@ -45,7 +47,19 @@ Java(TM) SE Embedded Runtime Environment (build 1.8.0-b132, headless)
 Java HotSpot(TM) Embedded Client VM (build 25.0-b70, mixed mode)
 ```
 
-### 2.1 Install OpenCV for Java
+### 2.2 Install Java 8 for BrickPi
+
+```
+sudo apt-get install software-properties-common
+sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com EEA14886
+sudo vi /etc/apt/sources.list
+deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main 
+deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main
+sudo apt-get update
+sudo apt-get install oracle-java8-installer
+``
+
+## 3 Install OpenCV for Java
 
 ``` 
 sudo apt-get install libopencv2.4-java
