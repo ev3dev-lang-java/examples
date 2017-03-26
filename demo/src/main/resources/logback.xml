@@ -10,6 +10,8 @@
 
     <logger name="ch.qos.logback.core" level="OFF" />
     <logger name="ev3dev.hardware" level="TRACE" />
+    <logger name="ev3dev.hardware.EV3DevPlatform" level="OFF" />
+    <logger name="ev3dev.utils" level="OFF" />
 
     <root level="DEBUG">
         <appender-ref ref="STDOUT"/>

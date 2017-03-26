@@ -5,4 +5,4 @@ ev3dev-lang-java libraries.
 
 ```
 gradle init --type java-library
-```
+``
