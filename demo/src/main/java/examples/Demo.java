@@ -95,7 +95,7 @@ public @Slf4j class Demo {
         System.exit(0);
     }
 
-    private static boolean isBetterLeft(Scan scan) {
+    private static boolean isBetterLeft(final Scan scan) {
 
         final Double leftAverage = scan.getDistances()
                 .stream()
