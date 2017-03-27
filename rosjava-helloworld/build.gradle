@@ -1,0 +1,23 @@
+
+apply plugin: 'java'
+
+// In this section you declare where to find the dependencies of your project
+repositories {
+    maven {
+        url "https://github.com/rosjava/rosjava_mvn_repo/raw/master"
+    }
+    mavenCentral()
+}
+
+dependencies {
+    compile("org.projectlombok:lombok:1.16.8")
+    compile("ch.qos.logback:logback-classic:1.1.6")
+
+    compile 'org.ros.rosjava_core:rosjava:[0.2,0.3)'
+    compile 'org.ros.rosjava_messages:std_msgs:[0.1,)'
+    compile 'org.ros.rosjava_messages:sensor_msgs:[0.1,)'
+    compile 'org.ros.rosjava_messages:geometry_msgs:[1.11,1.12)'
+
+    compile 'org.slf4j:slf4j-api:1.7.12'
+    testCompile 'junit:junit:4.12'
+}
