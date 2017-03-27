@@ -22,7 +22,7 @@ import java.io.File;
 public @Slf4j class Demo {
 
     private static EV3LargeRegulatedMotor mA = null;
-    private static EV3MediumRegulatedMotor mB = null;
+    private static EV3LargeRegulatedMotor mB = null;
 
     private static EV3GyroSensor gyroSensor = null;
     private static EV3IRSensor irSensor = null;
@@ -123,7 +123,7 @@ public @Slf4j class Demo {
 
     private static void configRobot() throws RPLidarA1ServiceException {
         mA = new EV3LargeRegulatedMotor(MotorPort.A);
-        mB = new EV3MediumRegulatedMotor(MotorPort.B);
+        mB = new EV3LargeRegulatedMotor(MotorPort.B);
         mA.setSpeed(400);
         mB.setSpeed(400);
 
