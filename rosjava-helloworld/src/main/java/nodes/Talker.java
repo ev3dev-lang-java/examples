@@ -1,3 +1,4 @@
+package nodes;
 
 import org.ros.concurrent.CancellableLoop;
 import org.ros.namespace.GraphName;
