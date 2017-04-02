@@ -1,9 +1,7 @@
-
 import lombok.extern.slf4j.Slf4j;
 import nodes.Listener;
 import nodes.Talker;
 import org.ros.RosCore;
-import org.ros.internal.node.server.master.MasterServer;
 import org.ros.node.DefaultNodeMainExecutor;
 import org.ros.node.NodeConfiguration;
 import org.ros.node.NodeMain;
@@ -12,7 +10,6 @@ import services.Server;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public @Slf4j class ROSJavaTest {
@@ -40,7 +37,7 @@ public @Slf4j class ROSJavaTest {
 
         log.info("Starting listener node...");
         NodeConfiguration listenerConfig = NodeConfiguration.newPrivate();
-        String host = InetAddress.getLocalHost().getHostName();
+        String host = InetAddress.getLocalHost().getHostAddress();
         NodeConfiguration nodeConfiguration = NodeConfiguration.newPublic(host);
         listenerConfig.setMasterUri(mRosCore.getUri());
         listenerConfig.setNodeName("Listener");
@@ -60,6 +57,8 @@ public @Slf4j class ROSJavaTest {
         listenerConfig.setNodeName("Server");
         NodeMain server = new Server();
         e.execute(server, serverConfig);
+
+
     }
 
 }
