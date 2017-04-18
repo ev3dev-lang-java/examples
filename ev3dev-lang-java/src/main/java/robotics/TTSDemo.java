@@ -1,4 +1,4 @@
-package robotics;
+package examples.robotics;
 
 import ev3dev.robotics.tts.Espeak;
 import lombok.extern.slf4j.Slf4j;

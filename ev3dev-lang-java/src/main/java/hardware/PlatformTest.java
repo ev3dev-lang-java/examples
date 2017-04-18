@@ -1,4 +1,4 @@
-package hardware;
+package examples.hardware;
 
 import ev3dev.hardware.EV3DevDevice;
 import lombok.extern.slf4j.Slf4j;
