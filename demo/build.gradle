@@ -25,7 +25,7 @@ compileJava {
 jar {
     baseName = "${rootProject.name}"
     manifest {
-        from file("${projectDir}/src/main/java/META-INF/MANIFEST.MF")
+        from file("${projectDir}/src/main/resources/META-INF/MANIFEST.MF")
     }
 }
 
@@ -33,7 +33,7 @@ jar {
 task fatJar(type: Jar) {
     baseName = "${rootProject.name}" + "-all"
     manifest {
-        from file("${projectDir}/src/main/java/META-INF/MANIFEST.MF")
+        from file("${projectDir}/src/main/resources/META-INF/MANIFEST.MF")
     }
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
