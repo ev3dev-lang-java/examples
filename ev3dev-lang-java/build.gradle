@@ -13,8 +13,7 @@ repositories {
 }
 
 dependencies {
-    compile("com.github.ev3dev-lang-java:ev3dev-lang-java:v0.3.0")
-    compile("nu.pattern:opencv:2.4.9-4");
+    compile("com.github.ev3dev-lang-java:ev3dev-lang-java:v0.6.4-SNAPSHOT")
 }
 
 //Compile
