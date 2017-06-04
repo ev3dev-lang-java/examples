@@ -3,24 +3,25 @@ package ev3dev.misc;
 import ev3dev.actuators.lego.motors.EV3LargeRegulatedMotor;
 import ev3dev.sensors.Battery;
 import ev3dev.sensors.ev3.EV3IRSensor;
+import ev3dev.sensors.ev3.EV3UltrasonicSensor;
 import lejos.hardware.port.MotorPort;
 import lejos.hardware.port.SensorPort;
 import lejos.robotics.SampleProvider;
 import lejos.utility.Delay;
 
-public class BumperCar {
+public class BumperCar2 {
 	
 	//Robot Definition
     private final static EV3LargeRegulatedMotor mA = new EV3LargeRegulatedMotor(MotorPort.A);
     private final static EV3LargeRegulatedMotor mB = new EV3LargeRegulatedMotor(MotorPort.B);
-    private final static EV3IRSensor ir1 = new EV3IRSensor(SensorPort.S1);
+    private final static EV3UltrasonicSensor us1 = new EV3UltrasonicSensor(SensorPort.S1);
 
     //Configuration
     private final static int motorSpeed = 500;
     
     public static void main(String[] args) {
     	
-        final SampleProvider sp = ir1.getDistanceMode();
+        final SampleProvider sp = us1.getDistanceMode();
         int distance = 255;
 
         final int distance_threshold = 35;
