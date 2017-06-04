@@ -6,11 +6,9 @@ import lejos.robotics.localization.OdometryPoseProvider;
 import lejos.robotics.navigation.DifferentialPilot;
 import lejos.robotics.navigation.Navigator;
 
-import java.io.IOException;
-
 public class NavigatorTest2 {
 
-    public static void main(final String[] args) throws IOException {
+    public static void main(final String[] args) {
 
         PilotConfig pilotConf = new PilotConfig();
         final DifferentialPilot pilot = pilotConf.getPilot();
@@ -28,7 +26,7 @@ public class NavigatorTest2 {
 
         System.out.println(pp.getPose());
 
-        System.out.println("Voltage: {}" + Battery.getInstance().getVoltage());
+        System.out.println("Voltage: " + Battery.getInstance().getVoltage());
 
     }
 

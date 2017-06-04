@@ -10,7 +10,10 @@ public class PilotConfig {
 
     private DifferentialPilot pilot;
 
-    public PilotConfig() throws IOException {
+    public PilotConfig() {
+
+        try {
+
 
         PilotProps pp = new PilotProps();
         pp.loadPersistentValues();
@@ -24,8 +27,6 @@ public class PilotConfig {
         leftMotor.brake();
         rightMotor.brake();
 
-        System.out.println("Any button to start");
-
         pilot = new DifferentialPilot(wheelDiameter, trackWidth, leftMotor, rightMotor, reverse);
         //pilot.setAngularAcceleration();
         pilot.setAngularSpeed(100);
@@ -33,6 +34,10 @@ public class PilotConfig {
         pilot.setLinearSpeed(100);
         int accel = 60;
         //pilot.setAcceleration(accel);
+
+        } catch (IOException e){
+            e.getStackTrace();
+        }
     }
 
     public DifferentialPilot getPilot(){

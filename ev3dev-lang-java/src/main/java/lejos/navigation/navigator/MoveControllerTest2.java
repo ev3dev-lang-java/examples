@@ -7,8 +7,6 @@ import lejos.robotics.SampleProvider;
 import lejos.robotics.navigation.DifferentialPilot;
 import lejos.robotics.navigation.MoveController;
 
-import java.io.IOException;
-
 public class MoveControllerTest2 {
 
   MoveController pilot;
@@ -27,7 +25,7 @@ public class MoveControllerTest2 {
     pilot.travel(-dist);
   }
  
-  public static void main(String[] args) throws IOException {
+  public static void main(String[] args) {
 
     final MoveControllerTest2 traveler = new MoveControllerTest2();
     final PilotConfig pilotConf = new PilotConfig();

@@ -12,7 +12,7 @@ public class NavigatorTest4 implements NavigationListener{
 	static Navigator navigator;
 	static NavigationListener nLis;
 	
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) {
 
 		PilotConfig pilotConf = new PilotConfig();
 		pilot = pilotConf.getPilot();

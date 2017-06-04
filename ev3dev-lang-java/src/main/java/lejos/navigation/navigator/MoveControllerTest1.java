@@ -8,11 +8,9 @@ import lejos.robotics.navigation.Navigator;
 import lejos.robotics.navigation.Pose;
 import lejos.robotics.navigation.Waypoint;
 
-import java.io.IOException;
-
 public class MoveControllerTest1 {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 
 		PilotConfig pilotConf = new PilotConfig();
 		final DifferentialPilot pilot = pilotConf.getPilot();
@@ -36,7 +34,7 @@ public class MoveControllerTest1 {
 
 		show(navigator.getPoseProvider().getPose());
 
-		System.out.println("Voltage: {}" + Battery.getInstance().getVoltage());
+		System.out.println("Voltage: " + Battery.getInstance().getVoltage());
 
 	}
 

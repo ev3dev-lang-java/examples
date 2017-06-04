@@ -14,11 +14,11 @@ public class NavigatorTest3 {
 
     public static void main(final String[] args) throws IOException {
 
-        PilotConfig pilotConf = new PilotConfig();
+        final PilotConfig pilotConf = new PilotConfig();
         final DifferentialPilot pilot = pilotConf.getPilot();
 
-        OdometryPoseProvider pp = new OdometryPoseProvider(pilot);
-        Navigator navigator = new Navigator(pilot, pp);
+        final OdometryPoseProvider pp = new OdometryPoseProvider(pilot);
+        final Navigator navigator = new Navigator(pilot, pp);
 
         Path path = new Path();
         path.add(new Waypoint(0,0));
