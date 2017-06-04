@@ -1,15 +1,15 @@
-package examples.sensors.ev3;
+package ev3dev.sensors.ev3;
 
-import ev3dev.sensors.ev3.EV3GyroSensor;
 import lejos.hardware.port.SensorPort;
 import lejos.robotics.SampleProvider;
 import lejos.utility.Delay;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
 
-public @Slf4j class GyroSensorDemo3 {
+public class GyroSensorDemo3 {
 
+	private static final Logger log = org.slf4j.LoggerFactory.getLogger(GyroSensorDemo3.class);
 	//Robot Configuration
-	private static EV3GyroSensor gyroSensor = new EV3GyroSensor(SensorPort.S1);
+	private static EV3GyroSensor gyroSensor = new EV3GyroSensor(SensorPort.S2);
 
 	//Configuration
 	private static int HALF_SECOND = 500;

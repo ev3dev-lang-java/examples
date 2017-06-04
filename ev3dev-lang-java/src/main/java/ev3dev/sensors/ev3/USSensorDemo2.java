@@ -1,12 +1,10 @@
-package examples.sensors.ev3;
+package ev3dev.sensors.ev3;
 
-import ev3dev.sensors.ev3.EV3UltrasonicSensor;
 import lejos.hardware.port.SensorPort;
 import lejos.robotics.SampleProvider;
 import lejos.utility.Delay;
-import lombok.extern.slf4j.Slf4j;
 
-public @Slf4j class USSensorDemo2 {
+public class USSensorDemo2 {
 
 	//Robot Configuration
 	private static EV3UltrasonicSensor us1 = new EV3UltrasonicSensor(SensorPort.S1);
@@ -36,7 +34,7 @@ public @Slf4j class USSensorDemo2 {
 
 			distanceValue = (int)sample[0];
 
-			log.info("Iteration: {}, Distance: {}", i, distanceValue);
+			System.out.println("Iteration: {}, Distance: {}" + i + distanceValue);
 
 		}
 		

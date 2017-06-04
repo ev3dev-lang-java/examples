@@ -1,17 +1,15 @@
-package examples.sensors.ev3;
+package ev3dev.sensors.ev3;
 
-import ev3dev.sensors.ev3.EV3ColorSensor;
 import lejos.hardware.port.SensorPort;
 import lejos.robotics.SampleProvider;
 import lejos.utility.Delay;
-import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-public @Slf4j class ColorSensorMultipleDemo {
+public class ColorSensorMultipleDemo {
 
 	//Robot Configuration
 	private static EV3ColorSensor color1 = new EV3ColorSensor(SensorPort.S1);
@@ -80,7 +78,7 @@ public @Slf4j class ColorSensorMultipleDemo {
 
 	private static void runRGBMode(final EV3ColorSensor sensor){
 		//RGB
-		log.info("Switching to RGB Mode");
+        System.out.println("Switching to RGB Mode");
 		SampleProvider sp = sensor.getRGBMode();
 
 		int sampleSize = sp.sampleSize();
@@ -89,16 +87,16 @@ public @Slf4j class ColorSensorMultipleDemo {
 		// Takes some samples and prints them
 		for (int i = 0; i < 5; i++) {
 			sp.fetchSample(sample, 0);
-			log.info("N={} Sample={}", i, (int)sample[0]);
-			log.info("N={} Sample={}", i, (int)sample[1]);
-			log.info("N={} Sample={}", i, (int)sample[2]);
+			System.out.println("N={} Sample={}" +  i + (int)sample[0]);
+            System.out.println("N={} Sample={}" + i + (int)sample[1]);
+            System.out.println("N={} Sample={}" + i + (int)sample[2]);
 		}
 	}
 
 	private static void runAmbientMode(final EV3ColorSensor sensor){
 
 		//Ambient Mode
-		log.info("Switching to Ambient Mode");
+        System.out.println("Switching to Ambient Mode");
 		SampleProvider sp = sensor.getAmbientMode();
 
 		int sampleSize = sp.sampleSize();
@@ -107,7 +105,7 @@ public @Slf4j class ColorSensorMultipleDemo {
 		// Takes some samples and prints them
 		for (int i = 0; i < 5; i++) {
 			sp.fetchSample(sample, 0);
-			log.info("N={} Sample={}", i, (int)sample[0]);
+            System.out.println("N={} Sample={}" +  i + (int)sample[0]);
 		}
 	}
 

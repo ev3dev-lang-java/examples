@@ -1,11 +1,9 @@
-package examples.sensors.ev3;
+package ev3dev.sensors.ev3;
 
-import ev3dev.sensors.ev3.EV3ColorSensor;
 import lejos.hardware.port.SensorPort;
 import lejos.robotics.SampleProvider;
-import lombok.extern.slf4j.Slf4j;
 
-public @Slf4j class ColorSensorDemo2 {
+public class ColorSensorDemo2 {
 
 	//Robot Configuration
 	private static EV3ColorSensor color1 = new EV3ColorSensor(SensorPort.S1);

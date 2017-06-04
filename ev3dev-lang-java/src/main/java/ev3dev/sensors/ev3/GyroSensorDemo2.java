@@ -1,14 +1,12 @@
-package examples.sensors.ev3;
+package ev3dev.sensors.ev3;
 
-import ev3dev.sensors.ev3.EV3GyroSensor;
 import lejos.hardware.port.SensorPort;
 import lejos.robotics.SampleProvider;
-import lombok.extern.slf4j.Slf4j;
 
-public @Slf4j class GyroSensorDemo2 {
+public class GyroSensorDemo2 {
 
 	//Robot Configuration
-	private static EV3GyroSensor gyroSensor = new EV3GyroSensor(SensorPort.S1);
+	private static EV3GyroSensor gyroSensor = new EV3GyroSensor(SensorPort.S2);
 
 	public static void main(String[] args) {
 

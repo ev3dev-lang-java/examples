@@ -1,15 +1,13 @@
-package examples.sensors.ev3;
+package ev3dev.sensors.ev3;
 
-import ev3dev.sensors.ev3.EV3IRSensor;
 import lejos.hardware.port.SensorPort;
 import lejos.robotics.SampleProvider;
 import lejos.utility.Delay;
-import lombok.extern.slf4j.Slf4j;
 
-public @Slf4j class IRSensorDemo {
+public class IRSensorDemo {
 
 	//Robot Configuration
-	private static EV3IRSensor ir1 = new EV3IRSensor(SensorPort.S1);
+	private static EV3IRSensor ir1 = new EV3IRSensor(SensorPort.S4);
 	
 	//Configuration
 	private static int HALF_SECOND = 500;
@@ -26,9 +24,9 @@ public @Slf4j class IRSensorDemo {
 			float [] sample = new float[sp.sampleSize()];
 		    sp.fetchSample(sample, 0);
 		    distanceValue = (int)sample[0];
-		  	
-		  	log.info("Iteration: {}", i);
-		  	log.info("Distance: {}", distanceValue);
+
+			System.out.println("Iteration: {}" + i);
+			System.out.println("Distance: {}" + distanceValue);
 		      
 		    Delay.msDelay(HALF_SECOND);
 		}

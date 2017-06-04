@@ -1,15 +1,13 @@
-package examples.sensors.ev3;
+package ev3dev.sensors.ev3;
 
-import ev3dev.sensors.ev3.EV3TouchSensor;
 import lejos.hardware.port.SensorPort;
 import lejos.robotics.SampleProvider;
 import lejos.utility.Delay;
-import lombok.extern.slf4j.Slf4j;
 
-public @Slf4j class TouchSensorDemo {
+public class TouchSensorDemo {
 
 	//Robot Configuration
-	private static EV3TouchSensor touch1 = new EV3TouchSensor(SensorPort.S1);
+	private static EV3TouchSensor touch1 = new EV3TouchSensor(SensorPort.S3);
 	
 	//Configuration
 	private static int HALF_SECOND = 500;
@@ -26,9 +24,9 @@ public @Slf4j class TouchSensorDemo {
         	float [] sample = new float[sp.sampleSize()];
             sp.fetchSample(sample, 0);
             touchValue = (int)sample[0];
-        	
-        	log.info("Iteration: {}", i);
-            log.info("Touch: {}", touchValue);
+
+			System.out.println("Iteration: {}" + i);
+			System.out.println("Touch: {}" + touchValue);
             
             Delay.msDelay(HALF_SECOND);
         }
