@@ -1,19 +1,16 @@
-package examples.robotics;
+package ev3dev.robotics.tts;
 
-import ev3dev.robotics.tts.Espeak;
-import lombok.extern.slf4j.Slf4j;
-
-public @Slf4j class TTSDemo {
+public class TTSDemo {
 
 	public static void main(String[] args) {
 
-		log.info("Testing Espeak on EV3Brick");
+		System.out.println("Testing Espeak on EV3Brick");
 
 		Espeak TTS = new Espeak();
-		
+		TTS.setVolume(100);
+
 		//Spanish example
 		TTS.setVoice("es");
-		TTS.setVolume(100);
 		TTS.setSpeedReading(200);
 		TTS.setPitch(50);
 		TTS.setMessage("Soy un robot LEGO");

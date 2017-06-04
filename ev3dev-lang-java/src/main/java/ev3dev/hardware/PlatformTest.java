@@ -1,14 +1,11 @@
-package examples.hardware;
+package ev3dev.hardware;
 
-import ev3dev.hardware.EV3DevDevice;
-import lombok.extern.slf4j.Slf4j;
-
-public @Slf4j class PlatformTest extends EV3DevDevice {
+public class PlatformTest extends EV3DevDevice {
 
 	public static void main(String[] args) {
 		final PlatformTest platform = new PlatformTest();
-		final String value = platform.getPlatform();
-		log.info("Using the platform: {}", value);
+		final EV3DevPlatform value = platform.getPlatform();
+		System.out.println("Using the platform: " + value);
 	}
 
 }
