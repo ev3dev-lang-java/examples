@@ -1,11 +1,10 @@
 package ev3dev.actuators;
 
 import lejos.hardware.lcd.GraphicsLCD;
-import lombok.extern.slf4j.Slf4j;
 
 import java.awt.*;
 
-public @Slf4j class LCDFontTest {
+public class LCDFontTest {
 
     public static GraphicsLCD lcd = LCD.getInstance();
 
@@ -18,13 +17,13 @@ public @Slf4j class LCDFontTest {
         // Get all font family name in a String[]
         String[] fontNames = env.getAvailableFontFamilyNames();
         for (String fontName : fontNames) {
-            log.info("Font: {}",fontName);
+            System.out.println("Font: {}" + fontName);
         }
 
         // Construct all Font instance (with font size of 1)
         Font[] fonts = env.getAllFonts();
         for (Font font : fonts) {
-            log.info("Font: {}",font);
+            System.out.println("Font: {}" + font);
         }
 
         writeMessage("Hello World");
