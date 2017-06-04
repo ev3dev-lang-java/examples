@@ -4,7 +4,7 @@ import ev3dev.actuators.lego.motors.Motor;
 import ev3dev.sensors.ev3.EV3UltrasonicSensor;
 import lejos.hardware.port.SensorPort;
 import lejos.robotics.SampleProvider;
-import lejos.robotics.subsumption.*;
+import lejos.robotics.subsumption.Behavior;
 
 public class HitWall implements Behavior {
 

@@ -1,15 +1,16 @@
-package examples;
+package ev3dev.actuators;
 
-import ev3dev.actuators.lcd.EV3GraphicsLCD;
 import lejos.hardware.lcd.GraphicsLCD;
 import lejos.robotics.Color;
 import lejos.utility.Delay;
 
 public class LCDWriteTextTest {
 
-    public static GraphicsLCD lcd = new EV3GraphicsLCD();
+    public static GraphicsLCD lcd = LCD.getInstance();
 
     public static void main(final String[] args){
+
+        System.out.println("EV3 LCD Example");
 
         clear();
         writeMessage("Juanito");

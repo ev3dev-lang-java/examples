@@ -1,29 +1,34 @@
-package examples.actuators;
+package ev3dev.actuators;
 
-import ev3dev.actuators.Sound;
+import ev3dev.utils.JarResource;
 import lejos.utility.Delay;
-import lombok.extern.slf4j.Slf4j;
 
-public @Slf4j class SoundDemo {
+import java.io.File;
+import java.io.IOException;
+
+public class SoundDemo {
 
 	//Configuration
 	private static int MAX_VOLUME = 100;
-	private static String filePath = "/home/cncsounds/commander.wav";
+	private static String filePath = "nod_low_power.wav";
     private final static int ONE_SECOND = 1000;
 	
     private static final int FREQ1	= 300;
     private static final int FREQ2 = 400;
     private static final int variation = 10;
     
-	public static void main(String[] args) {
- 
+	public static void main(String[] args) throws IOException {
+
+		System.out.println("Sound example");
+
 		Sound sound = Sound.getInstance();
 		
 		sound.setVolume(MAX_VOLUME);
-		log.info("Volume: {}", sound.getVolume());
+		System.out.println("Volume: " + sound.getVolume());
 
-		//File file = new File(filePath);
-		//sound.playSample(file);
+		JarResource.export(filePath);
+		File file = new File(filePath);
+		sound.playSample(file);
 
 		sound.beep();
 		sound.twoBeeps();

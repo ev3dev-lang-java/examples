@@ -1,20 +1,17 @@
-package examples;
+package ev3dev.actuators;
 
-import ev3dev.actuators.lcd.EV3GraphicsLCD;
 import lejos.hardware.lcd.GraphicsLCD;
-import lejos.robotics.*;
 import lombok.extern.slf4j.Slf4j;
 
 import java.awt.*;
-import java.awt.Color;
 
 public @Slf4j class LCDFontTest {
 
-    public static GraphicsLCD lcd = new EV3GraphicsLCD();
+    public static GraphicsLCD lcd = LCD.getInstance();
 
     public static void main(final String[] args){
 
-        clear();
+        System.out.println("EV3 LCD Example");
 
         GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
 

@@ -1,7 +1,7 @@
 package lejos.commons.subsumption.ko;
 
 import ev3dev.actuators.lego.motors.Motor;
-import lejos.robotics.subsumption.*;
+import lejos.robotics.subsumption.Behavior;
 
 public class DriveForward  implements Behavior {
 
