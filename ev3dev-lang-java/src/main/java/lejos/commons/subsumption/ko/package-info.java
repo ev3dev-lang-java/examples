@@ -26,4 +26,5 @@ ev3dev#1|Example using Subsumption architecture
         ev3dev#1|	at ev3dev.actuators.lego.motors.Motor.<clinit>(Motor.java:31)
         ev3dev#1|	... 3 more
         Failed command ev3dev#1 with status 1: java -server -jar /home/robot/ev3dev-lang-java-all-0.1.0.jar
+
     */

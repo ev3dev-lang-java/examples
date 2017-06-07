@@ -1,5 +1,6 @@
 package ev3dev.sensors.ev3;
 
+import ev3dev.sensors.Battery;
 import lejos.hardware.port.SensorPort;
 import lejos.robotics.SampleProvider;
 import lejos.utility.Delay;
@@ -34,10 +35,11 @@ public class USSensorDemo2 {
 
 			distanceValue = (int)sample[0];
 
-			System.out.println("Iteration: {}, Distance: {}" + i + distanceValue);
+			System.out.println("Iteration: {}, Distance: {}" + i + " "+ distanceValue);
 
 		}
-		
+
+		System.out.println(Battery.getInstance().getVoltage());
 	}
 
 }

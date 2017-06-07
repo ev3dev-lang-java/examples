@@ -1,7 +1,7 @@
 //Gradle file library ev3dev-lang-java / examples
 //Author: Juan Antonio Breña Moral
 
-version = '0.6.0-RELEASE'
+version = '0.6.1-RELEASE'
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-    compile("com.github.ev3dev-lang-java:ev3dev-lang-java:v0.6.0-RELEASE")
+    compile("com.github.ev3dev-lang-java:ev3dev-lang-java:v0.6.0")
     compile("com.github.ev3dev-lang-java:lejos-navigation:v0.1.0")
 
     compile("ch.qos.logback:logback-classic:1.2.3")

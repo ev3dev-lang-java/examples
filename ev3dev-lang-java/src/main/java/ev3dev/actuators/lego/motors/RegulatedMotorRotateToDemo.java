@@ -6,7 +6,7 @@ import ev3dev.hardware.EV3DevPlatforms;
 import lejos.hardware.port.MotorPort;
 import lejos.utility.Delay;
 
-public class RegulatedMotorRotateToDemo extends EV3DevPlatforms{
+public class RegulatedMotorRotateToDemo extends EV3DevPlatforms {
 	
     public static void main(String[] args) {
 

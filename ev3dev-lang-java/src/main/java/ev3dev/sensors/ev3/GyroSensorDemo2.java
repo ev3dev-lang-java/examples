@@ -6,7 +6,7 @@ import lejos.robotics.SampleProvider;
 public class GyroSensorDemo2 {
 
 	//Robot Configuration
-	private static EV3GyroSensor gyroSensor = new EV3GyroSensor(SensorPort.S2);
+	private static EV3GyroSensor gyroSensor = new EV3GyroSensor(SensorPort.S1);
 
 	public static void main(String[] args) {
 

@@ -10,7 +10,8 @@ public class LargeMotorDemo2 {
         System.out.println("Starting motors on A");
         final EV3LargeRegulatedMotor mA = new EV3LargeRegulatedMotor(MotorPort.A);
         mA.setSpeed(500);
-        //mA.brake();
+        mA.brake();
+
         System.out.println("Forward");
         mA.forward();
         System.out.println("Large Motor is moving: " +  mA.isMoving() + " at speed {}" + mA.getSpeed());

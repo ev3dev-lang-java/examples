@@ -9,7 +9,7 @@ public class GyroSensorDemo3 {
 
 	private static final Logger log = org.slf4j.LoggerFactory.getLogger(GyroSensorDemo3.class);
 	//Robot Configuration
-	private static EV3GyroSensor gyroSensor = new EV3GyroSensor(SensorPort.S2);
+	private static EV3GyroSensor gyroSensor = new EV3GyroSensor(SensorPort.S1);
 
 	//Configuration
 	private static int HALF_SECOND = 500;

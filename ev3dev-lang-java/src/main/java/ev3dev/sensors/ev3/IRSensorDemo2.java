@@ -1,5 +1,6 @@
 package ev3dev.sensors.ev3;
 
+import ev3dev.sensors.Battery;
 import lejos.hardware.port.SensorPort;
 import lejos.robotics.SampleProvider;
 import lejos.utility.Delay;
@@ -7,12 +8,14 @@ import lejos.utility.Delay;
 public class IRSensorDemo2 {
 
 	//Robot Configuration
-	private static EV3IRSensor ir1 = new EV3IRSensor(SensorPort.S4);
+	private static EV3IRSensor ir1 = new EV3IRSensor(SensorPort.S1);
 	
 	//Configuration
 	private static int HALF_SECOND = 500;
 	
 	public static void main(String[] args) {
+
+		System.out.println(Battery.getInstance().getVoltage());
 
 		final SampleProvider sp = ir1.getSeekMode();
 
@@ -52,7 +55,9 @@ public class IRSensorDemo2 {
 
 		    Delay.msDelay(HALF_SECOND);
 		}
-		
+
+		System.out.println(Battery.getInstance().getVoltage());
+
 	}
 
 }

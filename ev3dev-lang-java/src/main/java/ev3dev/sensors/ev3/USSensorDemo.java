@@ -6,7 +6,6 @@ import lejos.utility.Delay;
 
 public class USSensorDemo {
 
-	//Robot Configuration
 	private static EV3UltrasonicSensor us1 = new EV3UltrasonicSensor(SensorPort.S1);
 
 	public static void main(String[] args) {
@@ -21,9 +20,9 @@ public class USSensorDemo {
             sp.fetchSample(sample, 0);
             distanceValue = (int)sample[0];
 
-			System.out.println("Iteration: {}, Distance: {}" + i + distanceValue);
+			System.out.println("Iteration: " + i + ", Distance: " + distanceValue);
 
-			Delay.msDelay(100);
+			Delay.msDelay(500);
         }
 		
 	}

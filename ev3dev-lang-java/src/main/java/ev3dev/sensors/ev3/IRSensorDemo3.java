@@ -7,7 +7,7 @@ import lejos.utility.Delay;
 public class IRSensorDemo3 {
 
 	//Robot Configuration
-	private static EV3IRSensor ir1 = new EV3IRSensor(SensorPort.S4);
+	private static EV3IRSensor ir1 = new EV3IRSensor(SensorPort.S1);
 	
 	//Configuration
 	private static int HALF_SECOND = 500;

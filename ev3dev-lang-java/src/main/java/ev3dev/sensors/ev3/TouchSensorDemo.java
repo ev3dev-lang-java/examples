@@ -1,5 +1,6 @@
 package ev3dev.sensors.ev3;
 
+import ev3dev.sensors.Battery;
 import lejos.hardware.port.SensorPort;
 import lejos.robotics.SampleProvider;
 import lejos.utility.Delay;
@@ -7,12 +8,14 @@ import lejos.utility.Delay;
 public class TouchSensorDemo {
 
 	//Robot Configuration
-	private static EV3TouchSensor touch1 = new EV3TouchSensor(SensorPort.S3);
+	private static EV3TouchSensor touch1 = new EV3TouchSensor(SensorPort.S1);
 	
 	//Configuration
 	private static int HALF_SECOND = 500;
 	
 	public static void main(String[] args) {
+
+
 
 		final SampleProvider sp = touch1.getTouchMode();
 		int touchValue = 0;
@@ -30,6 +33,8 @@ public class TouchSensorDemo {
             
             Delay.msDelay(HALF_SECOND);
         }
+
+        System.out.println(Battery.getInstance().getVoltage());
 		
 	}
 

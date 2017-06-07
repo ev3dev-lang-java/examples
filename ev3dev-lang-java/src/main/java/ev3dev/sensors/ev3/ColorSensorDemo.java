@@ -7,7 +7,7 @@ import lejos.utility.Delay;
 public class ColorSensorDemo {
 
 	//Robot Configuration
-	private static EV3ColorSensor color1 = new EV3ColorSensor(SensorPort.S4);
+	private static EV3ColorSensor color1 = new EV3ColorSensor(SensorPort.S1);
 	
 	//Configuration
 	private static int HALF_SECOND = 500;
