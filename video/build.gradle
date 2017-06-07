@@ -16,7 +16,7 @@ repositories {
 }
 
 dependencies {
-    compile("com.github.ev3dev-lang-java:ev3dev-lang-java:v0.6.4-SNAPSHOT")
+    compile("com.github.ev3dev-lang-java:ev3dev-lang-java:v0.6.5-SNAPSHOT")
     compile 'org.jcodec:jcodec:0.2.0'
     compile 'org.jcodec:jcodec-javase:0.2.0'
 }

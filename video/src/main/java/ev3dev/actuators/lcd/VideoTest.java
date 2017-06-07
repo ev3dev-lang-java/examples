@@ -1,5 +1,6 @@
 package ev3dev.actuators.lcd;
 
+import ev3dev.actuators.ev3.lcd.EV3GraphicsLCD;
 import lejos.hardware.lcd.GraphicsLCD;
 import org.jcodec.api.awt.AWTFrameGrab8Bit;
 
@@ -16,14 +17,14 @@ public class VideoTest {
 
     public static void main(final String[] args) throws Exception {
 
-        JarResource.export("/" + "giphy2.mp4");
+        JarResource.export("/" + "giphy.mp4");
 
         clear();
 
         List<BufferedImage> list = new ArrayList<>();
 
         for (int i = 0; i < 20; i++) {
-            BufferedImage image = AWTFrameGrab8Bit.getFrame(new File("giphy2.mp4"), i*4);
+            BufferedImage image = AWTFrameGrab8Bit.getFrame(new File("giphy.mp4"), i*6);
 
             int w = image.getWidth();
             int h = image.getHeight();
