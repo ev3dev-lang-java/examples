@@ -26,12 +26,16 @@ task remoteRun << {
 }
 
 task remoteProfilingRun << {
-    ssh.run {
-        session(remotes.ev3dev) {
-            println "java -Dcom.sun.management.jmxremote=true -Dcom.sun.management.jmxremote.port=7091 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -server -jar /home/robot/" + "${rootProject.name}" + "-all-" + version + ".jar "
-            execute "java -Dcom.sun.management.jmxremote=true -Dcom.sun.management.jmxremote.port=7091 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -server -jar /home/robot/" + "${rootProject.name}" + "-all-" + version + ".jar "
+    //doLast {
+        ssh.run {
+            session(remotes.ev3dev) {
+                //println "echo -e \"maker\n\" | sudo -S"
+                //execute "echo -e \"maker\n\" | sudo -S"
+                println "echo -e \"maker\" | sudo -S java -Dcom.sun.management.jmxremote=true -Dcom.sun.management.jmxremote.port=7091 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -server -jar /home/robot/" + "${rootProject.name}" + "-all-" + version + ".jar "
+                execute "echo -e \"maker\" | sudo -S java -Dcom.sun.management.jmxremote=true -Dcom.sun.management.jmxremote.port=7091 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -server -jar /home/robot/" + "${rootProject.name}" + "-all-" + version + ".jar "
+            }
         }
-    }
+    //}
 }
 
 task deployAndRun << {

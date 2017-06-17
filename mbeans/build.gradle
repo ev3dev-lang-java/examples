@@ -49,7 +49,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath "org.hidetake:gradle-ssh-plugin:2.0.0"
+        classpath "org.hidetake:gradle-ssh-plugin:2.9.0"
     }
 }
 apply plugin: 'org.hidetake.ssh'
