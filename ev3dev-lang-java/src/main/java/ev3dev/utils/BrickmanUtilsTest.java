@@ -1,11 +1,9 @@
 package examples;
 
+/*
 import ev3dev.utils.BrickmanUtils;
 import lejos.utility.Delay;
 
-/**
- * Created by jabrena on 4/6/17.
- */
 public class CatacrokerTest {
 
     public static void main(String[] args){
@@ -22,3 +20,4 @@ public class CatacrokerTest {
 
     }
 }
+*/

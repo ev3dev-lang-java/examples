@@ -1,5 +1,6 @@
 Manifest-Version: 1.0
 Implementation-Title: EV3Dev-lang-java / examples
-Implementation-Version: 0.6.0
+Implementation-Version: 0.6.1
 Implementation-Vendor: Juan Antonio Breña Moral
-Main-Class: ev3dev.sensors.ev3.IRSensorDemo3
+Main-Class: lejos.navigation.navigator.NavigatorTest2
+

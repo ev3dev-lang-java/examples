@@ -10,10 +10,18 @@ public class DifferentialPilotTest1 {
         final PilotConfig pilotConf = new PilotConfig();
         final DifferentialPilot pilot = pilotConf.getPilot();
 
-        pilot.travel(20);
+        pilot.travel(30);
         pilot.rotate(90);
 
-        System.out.println("Voltage: " + Battery.getInstance().getVoltage());
+        pilot.stop();
+
+        //To Stop the motor in case of pkill java for example
+        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+            public void run() {
+                pilot.stop();
+                System.out.println(Battery.getInstance().getVoltage());
+            }
+        }));
 
     }
 }

@@ -18,8 +18,8 @@ public class FeatureAvoider {
  
     public static void main(String[] args) {
 
-        final DifferentialPilot robot = new DifferentialPilot(4.0,18.0, Motor.A, Motor.C);
-        EV3IRSensor ir = new EV3IRSensor(SensorPort.S4);
+        final DifferentialPilot robot = new DifferentialPilot(4.0,18.0, Motor.A, Motor.B);
+        EV3IRSensor ir = new EV3IRSensor(SensorPort.S1);
         RangeFeatureDetector detector = new RangeFeatureDetector(new RangeFinderAdapter(ir.getDistanceMode()), MAX_DISTANCE, DETECTOR_DELAY);
  
         detector.enableDetection(true);

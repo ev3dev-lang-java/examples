@@ -1,7 +1,7 @@
 //Gradle file library ev3dev-lang-java / examples
 //Author: Juan Antonio Breña Moral
 
-version = '0.6.1-RELEASE'
+version = '0.6.1'
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
@@ -13,11 +13,18 @@ repositories {
 }
 
 dependencies {
-    compile("com.github.ev3dev-lang-java:ev3dev-lang-java:v0.6.0")
+    compile("com.github.ev3dev-lang-java:ev3dev-lang-java:v0.6.1")
     compile("com.github.ev3dev-lang-java:lejos-navigation:v0.1.0")
 
     compile("ch.qos.logback:logback-classic:1.2.3")
 }
+
+//Wrapper
+task wrapper(type: Wrapper) {
+    description = 'Generates gradlew[.bat] scripts'
+    gradleVersion = '3.5'
+}
+
 
 //Compile
 compileJava {
@@ -28,17 +35,28 @@ compileJava {
 //Jar
 jar {
     baseName = "${rootProject.name}"
-}
-
-//Fat Jar
-task fatJar(type: Jar) {
-    baseName = "${rootProject.name}" + "-all"
     manifest {
         from file("${projectDir}/src/main/resources/META-INF/MANIFEST.MF")
     }
-    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
-    with jar
 }
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.0'
+    }
+}
+
+//Fat Jar
+apply plugin: 'com.github.johnrengelman.shadow'
+
+task fatJar << {
+
+}
+fatJar.dependsOn shadowJar
+
 
 //Deploy on Brick
 buildscript {

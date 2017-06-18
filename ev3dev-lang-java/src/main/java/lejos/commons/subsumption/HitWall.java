@@ -1,5 +1,6 @@
 package lejos.commons.subsumption;
 
+import ev3dev.sensors.ev3.EV3IRSensor;
 import ev3dev.sensors.ev3.EV3UltrasonicSensor;
 import lejos.robotics.RegulatedMotor;
 import lejos.robotics.SampleProvider;
@@ -7,29 +8,28 @@ import lejos.robotics.subsumption.Behavior;
 
 public class HitWall implements Behavior {
 
-
     private boolean suppressed = false;
 
     private final RegulatedMotor motorLeft;
     private final RegulatedMotor motorRight;
-    private final EV3UltrasonicSensor us1;
+    private final EV3IRSensor irSensor;
 
     public HitWall(
             final RegulatedMotor motorLeft,
             final RegulatedMotor motorRight,
-            final EV3UltrasonicSensor us1) {
+            final EV3IRSensor irSensor) {
         this.motorLeft = motorLeft;
         this.motorRight = motorRight;
-        this.us1 = us1;
+        this.irSensor = irSensor;
     }
 
     public boolean takeControl() {
-        SampleProvider sp = us1.getDistanceMode();
+        SampleProvider sp = irSensor.getDistanceMode();
         float [] sample = new float[sp.sampleSize()];
         sp.fetchSample(sample, 0);
         int distanceValue = (int)sample[0];
 
-        return distanceValue < 25;
+        return distanceValue < 30;
     }
 
     public void suppress() {
