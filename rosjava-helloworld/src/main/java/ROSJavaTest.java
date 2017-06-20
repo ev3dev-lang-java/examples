@@ -17,7 +17,7 @@ public class ROSJavaTest {
 
     public static void main(String [] args) throws UnknownHostException {
 
-        mRosCore = RosCore.newPublic("6a36967c0c57", 11311);
+        mRosCore = RosCore.newPublic("localhost", 11311);
         mRosCore.start();
         try {
             mRosCore.awaitStart(5, TimeUnit.SECONDS);
