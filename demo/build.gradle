@@ -10,8 +10,13 @@ repositories {
 }
 
 dependencies {
+<<<<<<< HEAD
     compile("com.github.ev3dev-lang-java:ev3dev-lang-java:v0.5.0")
     compile("com.github.ev3dev-lang-java:RPLidar4J:v0.3.0-SNAPSHOT")
+=======
+    compile("com.github.ev3dev-lang-java:ev3dev-lang-java:v0.6.3-SNAPSHOT")
+    compile("com.github.ev3dev-lang-java:RPLidar4J:v0.3.2-SNAPSHOT")
+>>>>>>> develop
 }
 
 //Compile
@@ -25,7 +30,7 @@ compileJava {
 jar {
     baseName = "${rootProject.name}"
     manifest {
-        from file("${projectDir}/META-INF/MANIFEST.MF")
+        from file("${projectDir}/src/main/resources/META-INF/MANIFEST.MF")
     }
 }
 
@@ -33,7 +38,7 @@ jar {
 task fatJar(type: Jar) {
     baseName = "${rootProject.name}" + "-all"
     manifest {
-        from file("${projectDir}/META-INF/MANIFEST.MF")
+        from file("${projectDir}/src/main/resources/META-INF/MANIFEST.MF")
     }
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar

@@ -1,7 +1,12 @@
+//Gradle file library ROS Examples
+//Author: Juan Antonio Breña Moral
+
+version = '0.1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
 
-// In this section you declare where to find the dependencies of your project
 repositories {
     mavenCentral()
     jcenter()
@@ -12,19 +17,19 @@ repositories {
 
 dependencies {
     compile("org.projectlombok:lombok:1.16.8")
+
+    compile("org.slf4j:slf4j-api:1.7.12")
     //compile("ch.qos.logback:logback-classic:1.1.6")
     compile("commons-logging:commons-logging:1.1.1")
 
-    compile 'org.ros.rosjava_core:rosjava:[0.2,0.3)'
-    compile 'org.ros.rosjava_messages:std_msgs:[0.1,)'
-    compile 'org.ros.rosjava_messages:sensor_msgs:[0.1,)'
-    compile 'org.ros.rosjava_messages:geometry_msgs:[1.11,1.12)'
+    compile("org.ros.rosjava_core:rosjava:[0.2,0.3)")
+    compile("org.ros.rosjava_messages:std_msgs:[0.1,)")
+    compile("org.ros.rosjava_messages:sensor_msgs:[0.1,)")
+    compile("org.ros.rosjava_messages:geometry_msgs:[1.11,1.12)")
 
-    compile group: 'commons-codec', name: 'commons-codec', version: '1.9'
-    compile group: 'commons-httpclient', name: 'commons-httpclient', version: '3.1'
+    compile("commons-codec:commons-codec:1.9")
+    compile("commons-httpclient:commons-httpclient:3.1")
 
-    compile 'org.slf4j:slf4j-api:1.7.12'
-    testCompile 'junit:junit:4.12'
 }
 
 //Compile
@@ -37,16 +42,14 @@ compileJava {
 jar {
     baseName = "${rootProject.name}"
     manifest {
-        from file("${projectDir}/META-INF/MANIFEST.MF")
+        from file("${projectDir}/src/main/resources/META-INF/MANIFEST.MF")
     }
 }
 
 //Fat Jar
-task fatJar(type: Jar) {
-    baseName = "${rootProject.name}" + "-all"
-    manifest {
-        from file("${projectDir}/META-INF/MANIFEST.MF")
-    }
-    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
-    with jar
+apply plugin: 'com.github.johnrengelman.shadow'
+
+task fatJar << {
+
 }
+fatJar.dependsOn shadowJar

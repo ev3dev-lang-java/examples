@@ -1,7 +1,7 @@
-//Gradle file library ev3dev-lang-java/examples
+//Gradle file library ev3dev-lang-java / examples
 //Author: Juan Antonio Breña Moral
 
-version = '0.1.0'
+version = '0.6.1'
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
@@ -13,9 +13,18 @@ repositories {
 }
 
 dependencies {
-    compile("com.github.ev3dev-lang-java:ev3dev-lang-java:v0.3.0")
-    compile("nu.pattern:opencv:2.4.9-4");
+    compile("com.github.ev3dev-lang-java:ev3dev-lang-java:v0.6.1")
+    compile("com.github.ev3dev-lang-java:lejos-navigation:v0.1.0")
+
+    compile("ch.qos.logback:logback-classic:1.2.3")
 }
+
+//Wrapper
+task wrapper(type: Wrapper) {
+    description = 'Generates gradlew[.bat] scripts'
+    gradleVersion = '3.5'
+}
+
 
 //Compile
 compileJava {
@@ -27,19 +36,27 @@ compileJava {
 jar {
     baseName = "${rootProject.name}"
     manifest {
-        from file("${projectDir}/META-INF/MANIFEST.MF")
+        from file("${projectDir}/src/main/resources/META-INF/MANIFEST.MF")
+    }
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.0'
     }
 }
 
 //Fat Jar
-task fatJar(type: Jar) {
-    baseName = "${rootProject.name}" + "-all"
-    manifest {
-        from file("${projectDir}/META-INF/MANIFEST.MF")
-    }
-    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
-    with jar
+apply plugin: 'com.github.johnrengelman.shadow'
+
+task fatJar << {
+
 }
+fatJar.dependsOn shadowJar
+
 
 //Deploy on Brick
 buildscript {
@@ -52,36 +69,6 @@ buildscript {
         classpath "org.hidetake:gradle-ssh-plugin:2.0.0"
     }
 }
-
 apply plugin: 'org.hidetake.ssh'
 
-remotes {
-    ev3dev {
-        host = '192.168.1.2'
-        user = 'robot'
-        password = 'maker'
-    }
-}
-
-task deploy << {
-    ssh.run {
-        session(remotes.ev3dev) {
-            put from: "./build/libs/" + "${rootProject.name}" + "-all-" + version + ".jar", into: "/home/robot/"
-        }
-    }
-}
-deploy.dependsOn clean, fatJar
-
-task remoteRun << {
-    ssh.run {
-        session(remotes.ev3dev) {
-            println "java -jar /home/robot/" + "${rootProject.name}" + "-all-" + version + ".jar"
-            execute "java -jar /home/robot/" + "${rootProject.name}" + "-all-" + version + ".jar"
-        }
-    }
-}
-
-task deployAndRun << {
-
-}
-deployAndRun.dependsOn deploy, remoteRun
+apply from: 'deploy.gradle'

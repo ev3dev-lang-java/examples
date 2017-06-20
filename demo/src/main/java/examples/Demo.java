@@ -3,7 +3,6 @@ package examples;
 import ev3dev.actuators.Sound;
 import ev3dev.actuators.motors.EV3LargeRegulatedMotor;
 import ev3dev.sensors.Battery;
-import ev3dev.sensors.ev3.EV3GyroSensor;
 import ev3dev.sensors.ev3.EV3IRSensor;
 import ev3dev.sensors.slamtec.RPLidarA1;
 import ev3dev.sensors.slamtec.RPLidarA1ServiceException;
@@ -28,7 +27,7 @@ public @Slf4j class Demo {
     private static SampleProvider spIR = null;
 
     private static Battery battery;
-    private static final float VOLTAGE_THRESHOLD = 7500000;
+    private static final float VOLTAGE_THRESHOLD = 7.5f;
 
     private static final String USBPort = "/dev/ttyUSB0";
     private static RPLidarA1 lidar = null;
@@ -52,10 +51,15 @@ public @Slf4j class Demo {
 
         while(voltage >= VOLTAGE_THRESHOLD) {
 
+<<<<<<< HEAD
             forward();
             final Scan scan = lidar.scan();
 
             log.info("Measures: {}", scan.getDistances().size());
+=======
+
+            final Scan scan = lidar.scan();
+>>>>>>> develop
 
             voltage = battery.getVoltage();
             log.debug("Voltage: {}", voltage);
@@ -66,9 +70,9 @@ public @Slf4j class Demo {
             }
         }
 
-        stop();
         lidar.close();
         JarResource.delete(SOUND_FILE);
+        stop();
         log.info("End demo");
         System.exit(0);
     }
@@ -77,7 +81,7 @@ public @Slf4j class Demo {
 
         final Double leftAverage = scan.getDistances()
                 .stream()
-                .filter((measure) -> measure.getQuality() > 10)
+                .filter((measure) -> measure.getQuality() > 1)
                 .filter((measure) -> (measure.getAngle() >= 181))
                 .mapToDouble(ScanDistance::getDistance)
                 .average()
@@ -86,7 +90,7 @@ public @Slf4j class Demo {
 
         final Double rightAverage = scan.getDistances()
                 .stream()
-                .filter((measure) -> measure.getQuality() > 10)
+                .filter((measure) -> measure.getQuality() > 1)
                 .filter((measure) -> (measure.getAngle() <= 180))
                 .mapToDouble(ScanDistance::getDistance)
                 .average()
@@ -103,20 +107,33 @@ public @Slf4j class Demo {
 
         mA = new EV3LargeRegulatedMotor(MotorPort.A);
         mB = new EV3LargeRegulatedMotor(MotorPort.B);
-        mA.setSpeed(400);
-        mB.setSpeed(400);
+        mA.setSpeed(300);
+        mB.setSpeed(300);
 
+<<<<<<< HEAD
         irSensor = new EV3IRSensor(SensorPort.S1);
+=======
+        irSensor = new EV3IRSensor(SensorPort.S2);
+>>>>>>> develop
         spIR = irSensor.getDistanceMode();
         battery = Battery.getInstance();
         lidar = new RPLidarA1(USBPort);
         lidar.init();
         lidar.addListener(new RPLidarProviderListener() {
 
+<<<<<<< HEAD
             @Override
             public Scan scanFinished(final Scan scan) {
                 //log.info("Iteration: {}, Measures: {}", counter.incrementAndGet(), scan.getDistances().size());
                 log.info("Measures: {}", scan.getDistances().size());
+=======
+            //TODO Review interface.
+            @Override
+            public Scan scanFinished(Scan scan) {
+                log.info("Scan Measures: {}", scan.getDistances().size());
+
+
+>>>>>>> develop
                 if (!isSafeForward(scan)) {
 
                     stop();
@@ -125,6 +142,7 @@ public @Slf4j class Demo {
 
                     backward();
 
+<<<<<<< HEAD
                     if(isBetterLeft(scan)){
                         turnLeft();
                     }else{
@@ -133,6 +151,19 @@ public @Slf4j class Demo {
 
                     stop();
                 }
+=======
+                    if (isBetterLeft(scan)){
+                        turnLeft();
+                    }else {
+                        turnRight();
+                    }
+
+                }
+
+                forward();
+
+
+>>>>>>> develop
                 return scan;
             }
         });
@@ -142,22 +173,34 @@ public @Slf4j class Demo {
 
         final long counter = scan.getDistances()
                 .stream()
-                .filter((measure) -> measure.getQuality() > 10)
+                .filter((measure) -> measure.getQuality() > 1)
                 .filter((measure) -> (measure.getAngle() >= 350 || measure.getAngle() <= 10))
                 .filter((measure) -> measure.getDistance() <= 50)
                 .count();
 
-        log.debug("Counter: {}", counter);
+        scan.getDistances()
+                .stream()
+                .filter((measure) -> measure.getQuality() > 1)
+                .filter((measure) -> (measure.getAngle() >= 350 || measure.getAngle() <= 10))
+                .filter((measure) -> measure.getDistance() <= 50)
+                .forEach(System.out::println);
 
-        final float [] sample = new float[spIR.sampleSize()];
+        //TODO Move to another event
+        final float[] sample = new float[spIR.sampleSize()];
         spIR.fetchSample(sample, 0);
+<<<<<<< HEAD
         final int distanceValue = (int) sample[0];
+=======
+        final int distanceValue = (int)sample[0];
+
+        log.debug("Counter: {}", counter);
+>>>>>>> develop
         log.debug("IR Distance: {}", distanceValue);
 
-        if ((counter < 5) || (distanceValue > 50)) {
-            return true;
+        if ((counter > 5) || (distanceValue < 50)){
+            return false;
         }
-        return false;
+        return true;
     }
 
     private static void playSound(){

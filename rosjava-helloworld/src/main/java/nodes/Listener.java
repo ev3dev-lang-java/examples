@@ -1,13 +1,12 @@
 package nodes;
 
-import lombok.extern.slf4j.Slf4j;
 import org.ros.message.MessageListener;
 import org.ros.namespace.GraphName;
 import org.ros.node.AbstractNodeMain;
 import org.ros.node.ConnectedNode;
 import org.ros.node.topic.Subscriber;
 
-public @Slf4j class  Listener extends AbstractNodeMain {
+public class Listener extends AbstractNodeMain {
 
     @Override
     public GraphName getDefaultNodeName() {
@@ -16,7 +15,6 @@ public @Slf4j class  Listener extends AbstractNodeMain {
 
     @Override
     public void onStart(ConnectedNode connectedNode) {
-        //final Log log = connectedNode.getLog();
         Subscriber<std_msgs.String> subscriber = connectedNode.newSubscriber("chatter", std_msgs.String._TYPE);
         subscriber.addMessageListener(new MessageListener<std_msgs.String>() {
             @Override

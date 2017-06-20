@@ -1,6 +1,3 @@
-/**
- *
- */
 package nodes;
 
 import org.ros.concurrent.CancellableLoop;
@@ -9,10 +6,6 @@ import org.ros.node.AbstractNodeMain;
 import org.ros.node.ConnectedNode;
 import org.ros.node.topic.Publisher;
 
-/**
- * @author Tuan
- *
- */
 public class Talker extends AbstractNodeMain {
 
     @Override
@@ -22,6 +15,7 @@ public class Talker extends AbstractNodeMain {
 
     @Override
     public void onStart(ConnectedNode connectedNode) {
+
         final Publisher<std_msgs.String> publisher = connectedNode.newPublisher("chatter", std_msgs.String._TYPE);
         connectedNode.executeCancellableLoop(new CancellableLoop() {
             private int sequence = 0;
