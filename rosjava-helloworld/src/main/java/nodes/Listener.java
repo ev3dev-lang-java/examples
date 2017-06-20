@@ -19,7 +19,7 @@ public class Listener extends AbstractNodeMain {
         subscriber.addMessageListener(new MessageListener<std_msgs.String>() {
             @Override
             public void onNewMessage(std_msgs.String message) {
-                log.info("I heard: \"" + message.getData() + "\"");
+                System.out.println("I heard: \"" + message.getData() + "\"");
             }
         });
     }
