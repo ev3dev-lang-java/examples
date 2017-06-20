@@ -32,6 +32,12 @@ dependencies {
 
 }
 
+//Wrapper
+task wrapper(type: Wrapper) {
+    description = 'Generates gradlew[.bat] scripts'
+    gradleVersion = '3.5'
+}
+
 //Compile
 compileJava {
     sourceCompatibility = 1.8
