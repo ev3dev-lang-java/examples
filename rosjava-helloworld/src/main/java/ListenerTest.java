@@ -11,7 +11,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.concurrent.TimeUnit;
 
-public class ROSJavaTest {
+public class ListenerTest {
 
     private static RosCore mRosCore;
 
@@ -21,7 +21,8 @@ public class ROSJavaTest {
             System.out.println(s);
         }
 
-        String IP = "localhost";
+        //String IP = "localhost";
+        String IP = "192.168.1.244";
         if (args.length > 0) {
             IP = args[0];
         }
@@ -47,20 +48,10 @@ public class ROSJavaTest {
 
         System.out.println("Starting listener node...");
         NodeConfiguration listenerConfig = NodeConfiguration.newPrivate();
-        //String host = InetAddress.getLocalHost().getHostAddress();
-        //NodeConfiguration nodeConfiguration = NodeConfiguration.newPublic(host);
         listenerConfig.setMasterUri(mRosCore.getUri());
         listenerConfig.setNodeName("Listener");
         NodeMain listener = new Listener();
         e.execute(listener, listenerConfig);
-
-        System.out.println("Starting talker node...");
-	    NodeConfiguration talkerConfig = NodeConfiguration.newPrivate();
-	    talkerConfig.setMasterUri(mRosCore.getUri());
-	    talkerConfig.setNodeName("Talker");
-	    NodeMain talker = new Talker();
-	    e.execute(talker, talkerConfig);
-
     }
 
 }

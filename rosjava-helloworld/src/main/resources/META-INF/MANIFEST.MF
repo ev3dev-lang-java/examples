@@ -2,5 +2,5 @@ Manifest-Version: 1.0
 Implementation-Title: rosjava-helloworld
 Implementation-Version: 0.1.0
 Implementation-Vendor: Juan Antonio Breña Moral
-Main-Class: ROSJavaTest
+Main-Class: ListenerTest
 
