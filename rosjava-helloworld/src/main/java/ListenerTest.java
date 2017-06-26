@@ -7,6 +7,7 @@ import org.ros.node.NodeConfiguration;
 import org.ros.node.NodeMain;
 import org.ros.node.NodeMainExecutor;
 
+import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.concurrent.TimeUnit;
@@ -47,7 +48,7 @@ public class ListenerTest {
         NodeMainExecutor e = DefaultNodeMainExecutor.newDefault();
 
         System.out.println("Starting listener node...");
-        NodeConfiguration listenerConfig = NodeConfiguration.newPrivate();
+        NodeConfiguration listenerConfig = NodeConfiguration.newPublic(Inet4Address.getLocalHost().getHostAddress());
         listenerConfig.setMasterUri(mRosCore.getUri());
         listenerConfig.setNodeName("Listener");
         NodeMain listener = new Listener();

@@ -7,10 +7,11 @@ import org.ros.node.NodeConfiguration;
 import org.ros.node.NodeMain;
 import org.ros.node.NodeMainExecutor;
 
+import java.net.Inet4Address;
 import java.net.UnknownHostException;
 import java.util.concurrent.TimeUnit;
 
-public class ROSJavaTest2 {
+public class TalkerTest {
 
     private static RosCore mRosCore;
 
@@ -47,18 +48,15 @@ public class ROSJavaTest2 {
 
         /*
         System.out.println("Starting listener node...");
-        NodeConfiguration listenerConfig = NodeConfiguration.newPrivate();
-        //String host = InetAddress.getLocalHost().getHostAddress();
-        //NodeConfiguration nodeConfiguration = NodeConfiguration.newPublic(host);
+        NodeConfiguration listenerConfig = NodeConfiguration.newPublic(Inet4Address.getLocalHost().getHostAddress());
         listenerConfig.setMasterUri(mRosCore.getUri());
         listenerConfig.setNodeName("Listener");
         NodeMain listener = new Listener();
         e.execute(listener, listenerConfig);
         */
 
-
         System.out.println("Starting talker node...");
-	    NodeConfiguration talkerConfig = NodeConfiguration.newPrivate();
+	    NodeConfiguration talkerConfig = NodeConfiguration.newPublic(Inet4Address.getLocalHost().getHostAddress());
 	    talkerConfig.setMasterUri(mRosCore.getUri());
 	    talkerConfig.setNodeName("Talker");
 	    NodeMain talker = new Talker();

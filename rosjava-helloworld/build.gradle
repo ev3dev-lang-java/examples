@@ -9,6 +9,7 @@ apply plugin: 'idea'
 
 repositories {
     mavenCentral()
+    maven { url "https://jitpack.io" }
     jcenter()
     maven {
         url 'https://raw.githubusercontent.com/rosjava/rosjava_mvn_repo/master'
@@ -21,6 +22,8 @@ dependencies {
     compile("org.slf4j:slf4j-api:1.7.12")
     //compile("ch.qos.logback:logback-classic:1.1.6")
     compile("commons-logging:commons-logging:1.1.1")
+
+    compile("com.github.ev3dev-lang-java:ev3dev-lang-java:v0.6.1")
 
     compile("org.ros.rosjava_core:rosjava:[0.2,0.3)")
     compile("org.ros.rosjava_messages:std_msgs:[0.1,)")
