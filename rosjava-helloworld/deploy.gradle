@@ -1,12 +1,4 @@
 
-remotes {
-    ev3dev {
-        host = '10.0.1.3'
-        user = 'robot'
-        password = 'maker'
-    }
-}
-
 task deploy << {
     ssh.run {
         session(remotes.ev3dev) {
@@ -16,14 +8,33 @@ task deploy << {
 }
 deploy.dependsOn clean, fatJar
 
-task remoteRun << {
+
+task deployGeneratedFatJar << {
     ssh.run {
         session(remotes.ev3dev) {
-            println "java -server -jar /home/robot/" + "${rootProject.name}" + "-" + version + "-all.jar 192.168.1.244"
-            execute "java -server -jar /home/robot/" + "${rootProject.name}" + "-" + version + "-all.jar 192.168.1.244"
+            put from: "./build/libs/" + "${rootProject.name}" + "-" + version + "-all.jar", into: "/home/robot/"
         }
     }
 }
+
+task remoteRun << {
+    ssh.run {
+        session(remotes.ev3dev) {
+            println "java -Djava.util.logging.config.file=/home/robot/log-config.properties -Djavax.net.debug=all -server -jar /home/robot/" + "${rootProject.name}" + "-" + version + "-all.jar pistorms1"
+            execute "java -Djava.util.logging.config.file=/home/robot/log-config.properties -Djavax.net.debug=all -server -jar /home/robot/" + "${rootProject.name}" + "-" + version + "-all.jar pistorms1"
+        }
+    }
+}
+
+task remoteRunAndDebug << {
+    ssh.run {
+        session(remotes.ev3dev) {
+            println "java -Xdebug -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -server -jar /home/robot/" + "${rootProject.name}" + "-" + version + "-all.jar 10.0.1.3"
+            execute "java -Xdebug -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -server -jar /home/robot/" + "${rootProject.name}" + "-" + version + "-all.jar 10.0.1.3"
+        }
+    }
+}
+
 
 task remoteProfilingRun << {
     ssh.run {
@@ -38,10 +49,5 @@ task deployAndRun << {
 
 }
 deployAndRun.dependsOn deploy, remoteRun
-
-task deployAndProfilingRun << {
-
-}
-deployAndProfilingRun.dependsOn deploy, remoteProfilingRun
 
 apply from: 'config.gradle'

@@ -22,7 +22,7 @@ public class Listener extends AbstractNodeMain {
         subscriber.addMessageListener(new MessageListener<std_msgs.String>() {
             @Override
             public void onNewMessage(std_msgs.String message) {
-                Sound.getInstance().beep();
+                //Sound.getInstance().beep();
                 System.out.println("I heard: \"" + message.getData() + "\"");
             }
         });

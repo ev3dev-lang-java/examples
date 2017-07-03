@@ -17,6 +17,8 @@ public class TalkerTest {
 
     public static void main(String [] args) throws UnknownHostException {
 
+        System.setProperty("javax.net.debug","all");
+
         for (String s: args) {
             System.out.println(s);
         }
@@ -56,8 +58,9 @@ public class TalkerTest {
         */
 
         System.out.println("Starting talker node...");
-	    NodeConfiguration talkerConfig = NodeConfiguration.newPublic(Inet4Address.getLocalHost().getHostAddress());
-	    talkerConfig.setMasterUri(mRosCore.getUri());
+        //NodeConfiguration talkerConfig = NodeConfiguration.newPublic(Inet4Address.getLocalHost().getHostAddress());
+        NodeConfiguration talkerConfig = NodeConfiguration.newPublic("ev3dev");
+        talkerConfig.setMasterUri(mRosCore.getUri());
 	    talkerConfig.setNodeName("Talker");
 	    NodeMain talker = new Talker();
 	    e.execute(talker, talkerConfig);

@@ -18,12 +18,14 @@ public class ListenerTest {
 
     public static void main(String [] args) throws UnknownHostException {
 
+        System.out.println("ListenerTest");
+
         for (String s: args) {
             System.out.println(s);
         }
 
         //String IP = "localhost";
-        String IP = "192.168.1.244";
+        String IP = "10.0.1.2";
         if (args.length > 0) {
             IP = args[0];
         }
@@ -31,11 +33,17 @@ public class ListenerTest {
         mRosCore = RosCore.newPublic(IP, 11311);
         mRosCore.start();
         try {
-            mRosCore.awaitStart(5, TimeUnit.SECONDS);
+            mRosCore.awaitStart(15, TimeUnit.SECONDS);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         System.out.println("Ros core started");
+
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         startChatter();
 
@@ -48,7 +56,8 @@ public class ListenerTest {
         NodeMainExecutor e = DefaultNodeMainExecutor.newDefault();
 
         System.out.println("Starting listener node...");
-        NodeConfiguration listenerConfig = NodeConfiguration.newPublic(Inet4Address.getLocalHost().getHostAddress());
+        //NodeConfiguration listenerConfig = NodeConfiguration.newPublic(Inet4Address.getLocalHost().getHostAddress());
+        NodeConfiguration listenerConfig = NodeConfiguration.newPublic("ev3dev");
         listenerConfig.setMasterUri(mRosCore.getUri());
         listenerConfig.setNodeName("Listener");
         NodeMain listener = new Listener();

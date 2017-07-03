@@ -4,6 +4,7 @@ import org.ros.concurrent.CancellableLoop;
 import org.ros.namespace.GraphName;
 import org.ros.node.AbstractNodeMain;
 import org.ros.node.ConnectedNode;
+import org.ros.node.Node;
 import org.ros.node.topic.Publisher;
 
 public class Talker extends AbstractNodeMain {
@@ -18,6 +19,7 @@ public class Talker extends AbstractNodeMain {
 
         final Publisher<std_msgs.String> publisher =
                 connectedNode.newPublisher("chatter", std_msgs.String._TYPE);
+
         connectedNode.executeCancellableLoop(new CancellableLoop() {
             private int sequence = 0;
 
@@ -35,6 +37,7 @@ public class Talker extends AbstractNodeMain {
                 sequence++;
                 Thread.sleep(1000);
             }
+
         });
     }
 
