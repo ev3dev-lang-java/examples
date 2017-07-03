@@ -51,8 +51,15 @@ public @Slf4j class Demo {
 
         while(voltage >= VOLTAGE_THRESHOLD) {
 
+<<<<<<< HEAD
+            forward();
+            final Scan scan = lidar.scan();
+
+            log.info("Measures: {}", scan.getDistances().size());
+=======
 
             final Scan scan = lidar.scan();
+>>>>>>> develop
 
             voltage = battery.getVoltage();
             log.debug("Voltage: {}", voltage);
@@ -97,24 +104,36 @@ public @Slf4j class Demo {
     }
 
     private static void configRobot() throws RPLidarA1ServiceException {
+
         mA = new EV3LargeRegulatedMotor(MotorPort.A);
         mB = new EV3LargeRegulatedMotor(MotorPort.B);
         mA.setSpeed(300);
         mB.setSpeed(300);
 
+<<<<<<< HEAD
+        irSensor = new EV3IRSensor(SensorPort.S1);
+=======
         irSensor = new EV3IRSensor(SensorPort.S2);
+>>>>>>> develop
         spIR = irSensor.getDistanceMode();
         battery = Battery.getInstance();
         lidar = new RPLidarA1(USBPort);
         lidar.init();
         lidar.addListener(new RPLidarProviderListener() {
 
+<<<<<<< HEAD
+            @Override
+            public Scan scanFinished(final Scan scan) {
+                //log.info("Iteration: {}, Measures: {}", counter.incrementAndGet(), scan.getDistances().size());
+                log.info("Measures: {}", scan.getDistances().size());
+=======
             //TODO Review interface.
             @Override
             public Scan scanFinished(Scan scan) {
                 log.info("Scan Measures: {}", scan.getDistances().size());
 
 
+>>>>>>> develop
                 if (!isSafeForward(scan)) {
 
                     stop();
@@ -123,6 +142,16 @@ public @Slf4j class Demo {
 
                     backward();
 
+<<<<<<< HEAD
+                    if(isBetterLeft(scan)){
+                        turnLeft();
+                    }else{
+                        turnRight();
+                    }
+
+                    stop();
+                }
+=======
                     if (isBetterLeft(scan)){
                         turnLeft();
                     }else {
@@ -134,6 +163,7 @@ public @Slf4j class Demo {
                 forward();
 
 
+>>>>>>> develop
                 return scan;
             }
         });
@@ -158,9 +188,13 @@ public @Slf4j class Demo {
         //TODO Move to another event
         final float[] sample = new float[spIR.sampleSize()];
         spIR.fetchSample(sample, 0);
+<<<<<<< HEAD
+        final int distanceValue = (int) sample[0];
+=======
         final int distanceValue = (int)sample[0];
 
         log.debug("Counter: {}", counter);
+>>>>>>> develop
         log.debug("IR Distance: {}", distanceValue);
 
         if ((counter > 5) || (distanceValue < 50)){

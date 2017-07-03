@@ -1,0 +1,88 @@
+//Gradle file library ROS Examples
+//Author: Juan Antonio Breña Moral
+
+version = '0.1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+repositories {
+    mavenCentral()
+    maven { url "https://jitpack.io" }
+    jcenter()
+    maven {
+        url 'https://raw.githubusercontent.com/rosjava/rosjava_mvn_repo/master'
+    }
+}
+
+dependencies {
+    compile("org.projectlombok:lombok:1.16.8")
+
+    compile("org.slf4j:slf4j-api:1.7.12")
+    //compile("ch.qos.logback:logback-classic:1.1.6")
+    compile("commons-logging:commons-logging:1.2")
+
+    compile("com.github.ev3dev-lang-java:ev3dev-lang-java:v0.6.1")
+
+    compile("org.ros.rosjava_core:rosjava:[0.2,0.3)")
+    compile("org.ros.rosjava_messages:std_msgs:[0.1,)")
+    compile("org.ros.rosjava_messages:sensor_msgs:[0.1,)")
+    compile("org.ros.rosjava_messages:geometry_msgs:[1.11,1.12)")
+
+    compile("commons-codec:commons-codec:1.9")
+    compile("commons-httpclient:commons-httpclient:3.1")
+
+}
+
+//Wrapper
+task wrapper(type: Wrapper) {
+    description = 'Generates gradlew[.bat] scripts'
+    gradleVersion = '3.5'
+}
+
+//Compile
+compileJava {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
+//Jar
+jar {
+    baseName = "${rootProject.name}"
+    manifest {
+        from file("${projectDir}/src/main/resources/META-INF/MANIFEST.MF")
+    }
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.0'
+    }
+}
+
+//Fat Jar
+apply plugin: 'com.github.johnrengelman.shadow'
+
+task fatJar << {
+
+}
+fatJar.dependsOn shadowJar
+
+//Deploy on Brick
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "org.hidetake:gradle-ssh-plugin:2.0.0"
+    }
+}
+apply plugin: 'org.hidetake.ssh'
+
+apply from: 'deploy.gradle'
