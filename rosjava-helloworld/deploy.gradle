@@ -1,0 +1,53 @@
+
+task deploy << {
+    ssh.run {
+        session(remotes.ev3dev) {
+            put from: "./build/libs/" + "${rootProject.name}" + "-" + version + "-all.jar", into: "/home/robot/"
+        }
+    }
+}
+deploy.dependsOn clean, fatJar
+
+
+task deployGeneratedFatJar << {
+    ssh.run {
+        session(remotes.ev3dev) {
+            put from: "./build/libs/" + "${rootProject.name}" + "-" + version + "-all.jar", into: "/home/robot/"
+        }
+    }
+}
+
+task remoteRun << {
+    ssh.run {
+        session(remotes.ev3dev) {
+            println "java -Djava.util.logging.config.file=/home/robot/log-config.properties -Djavax.net.debug=all -server -jar /home/robot/" + "${rootProject.name}" + "-" + version + "-all.jar pistorms1"
+            execute "java -Djava.util.logging.config.file=/home/robot/log-config.properties -Djavax.net.debug=all -server -jar /home/robot/" + "${rootProject.name}" + "-" + version + "-all.jar pistorms1"
+        }
+    }
+}
+
+task remoteRunAndDebug << {
+    ssh.run {
+        session(remotes.ev3dev) {
+            println "java -Xdebug -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -server -jar /home/robot/" + "${rootProject.name}" + "-" + version + "-all.jar 10.0.1.3"
+            execute "java -Xdebug -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -server -jar /home/robot/" + "${rootProject.name}" + "-" + version + "-all.jar 10.0.1.3"
+        }
+    }
+}
+
+
+task remoteProfilingRun << {
+    ssh.run {
+        session(remotes.ev3dev) {
+            println "java -Dcom.sun.management.jmxremote=true -Dcom.sun.management.jmxremote.port=7091 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -server -jar /home/robot/" + "${rootProject.name}" + "-all-" + version + ".jar "
+            execute "java -Dcom.sun.management.jmxremote=true -Dcom.sun.management.jmxremote.port=7091 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -server -jar /home/robot/" + "${rootProject.name}" + "-all-" + version + ".jar "
+        }
+    }
+}
+
+task deployAndRun << {
+
+}
+deployAndRun.dependsOn deploy, remoteRun
+
+apply from: 'config.gradle'

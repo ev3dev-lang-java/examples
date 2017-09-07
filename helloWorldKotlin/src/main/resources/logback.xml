@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
+    <jmxConfigurator />
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
@@ -9,22 +10,12 @@
         </encoder>
     </appender>
 
-    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-        <file> log-${byDay}.txt </file>
-        <append>true</append>
-        <encoder>
-            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
-        </encoder>
-    </appender>
-
     <logger name="ch.qos.logback.core" level="OFF" />
     <logger name="ev3dev.hardware" level="TRACE" />
-    <logger name="ev3dev.hardware.EV3DevPlatform" level="OFF" />
-    <logger name="ev3dev.utils" level="OFF" />
+    <logger name="ev3dev.utils" level="TRACE" />
 
-    <root level="DEBUG">
+    <root level="INFO">
         <appender-ref ref="STDOUT"/>
-        <appender-ref ref="FILE" />
     </root>
 
 </configuration>
