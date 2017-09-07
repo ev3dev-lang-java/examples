@@ -2,7 +2,6 @@
 
 This repository store a set of examples ready to use with the 
 ev3dev-lang-java libraries.
-`
 
 Take a look the following examples to discover some features included with this Java project.
 
@@ -85,7 +84,3 @@ Take a look the following examples to discover some features included with this 
 - [FeatureAvoider3](https://github.com/ev3dev-lang-java/examples/blob/develop/ev3dev-lang-java/src/main/java/lejos/navigation/feature/FeatureAvoider3.java) 
 
 
-`
-```
-gradle init --type java-library
-``
