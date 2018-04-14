@@ -10,13 +10,10 @@ repositories {
 }
 
 dependencies {
-<<<<<<< HEAD
-    compile("com.github.ev3dev-lang-java:ev3dev-lang-java:v0.5.0")
-    compile("com.github.ev3dev-lang-java:RPLidar4J:v0.3.0-SNAPSHOT")
-=======
-    compile("com.github.ev3dev-lang-java:ev3dev-lang-java:v0.6.3-SNAPSHOT")
+    compile("com.github.ev3dev-lang-java:ev3dev-lang-java:0.7.0")
     compile("com.github.ev3dev-lang-java:RPLidar4J:v0.3.2-SNAPSHOT")
->>>>>>> develop
+    compile group: 'javazoom', name: 'jlayer', version: '1.0.1'
+
 }
 
 //Compile

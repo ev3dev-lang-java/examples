@@ -1,7 +1,7 @@
 package examples;
 
-import ev3dev.actuators.motors.EV3LargeRegulatedMotor;
-import ev3dev.actuators.motors.EV3MediumRegulatedMotor;
+import ev3dev.actuators.lego.motors.EV3LargeRegulatedMotor;
+import ev3dev.actuators.lego.motors.EV3MediumRegulatedMotor;
 import ev3dev.sensors.Battery;
 import ev3dev.sensors.ev3.EV3GyroSensor;
 import ev3dev.sensors.slamtec.RPLidarA1;
