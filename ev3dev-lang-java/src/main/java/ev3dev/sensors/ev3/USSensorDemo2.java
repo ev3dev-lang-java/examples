@@ -1,6 +1,7 @@
-package ev3dev.sensors.ev3;
+package examples.sensors.ev3;
 
 import ev3dev.sensors.Battery;
+import ev3dev.sensors.ev3.EV3UltrasonicSensor;
 import lejos.hardware.port.SensorPort;
 import lejos.robotics.SampleProvider;
 import lejos.utility.Delay;

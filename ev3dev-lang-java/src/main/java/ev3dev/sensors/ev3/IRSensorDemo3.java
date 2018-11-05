@@ -1,8 +1,8 @@
-package ev3dev.sensors.ev3;
+package examples.sensors.ev3;
 
+import ev3dev.sensors.ev3.EV3IRSensor;
 import lejos.hardware.port.SensorPort;
 import lejos.robotics.SampleProvider;
-import lejos.utility.Delay;
 
 public class IRSensorDemo3 {
 
@@ -22,7 +22,7 @@ public class IRSensorDemo3 {
 		int beaconInfo4 = 0;
 
 		//Control loop
-		final int iteration_threshold = 50;
+		final int iteration_threshold = 500;
 		for(int i = 0; i <= iteration_threshold; i++) {
 		
 			float [] sample = new float[sp.sampleSize()];
@@ -39,7 +39,7 @@ public class IRSensorDemo3 {
 			System.out.println("Beacon Channel 3: Remote: {}" + beaconInfo3);
 			System.out.println("Beacon Channel 4: Remote: {}" + beaconInfo4);
 
-		    Delay.msDelay(HALF_SECOND);
+		    //Delay.msDelay(HALF_SECOND);
 		}
 		
 	}

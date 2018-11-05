@@ -1,11 +1,11 @@
-package ev3dev.actuators.lego.motors;
+package examples.actuators;
 
-import ev3dev.hardware.EV3DevPlatforms;
+import ev3dev.actuators.lego.motors.EV3LargeRegulatedMotor;
 import lejos.hardware.port.MotorPort;
 
-public class MultipleMotorsStopDemo extends EV3DevPlatforms {
+public class MultipleMotorsStopDemo {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
 
         MultipleMotorsStopDemo example = new MultipleMotorsStopDemo();
 

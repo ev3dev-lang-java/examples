@@ -1,5 +1,6 @@
-package ev3dev.sensors.ev3;
+package examples.sensors.ev3;
 
+import ev3dev.sensors.ev3.EV3GyroSensor;
 import lejos.hardware.port.SensorPort;
 import lejos.robotics.SampleProvider;
 import lejos.utility.Delay;
@@ -16,6 +17,7 @@ public class GyroSensorDemo3 {
 
 	public static void main(String[] args) {
 
+		gyroSensor.reset();
 		final SampleProvider sp = gyroSensor.getAngleAndRateMode();
 		int value = 0;
 

@@ -1,11 +1,11 @@
-package ev3dev.actuators.lego.motors;
+package examples.actuators;
 
-import ev3dev.hardware.EV3DevPlatforms;
-import ev3dev.sensors.Battery;
+import ev3dev.actuators.lego.motors.EV3LargeRegulatedMotor;
 import lejos.hardware.port.MotorPort;
 import lejos.utility.Delay;
 
-public class MultipleMotorsDemo extends EV3DevPlatforms {
+
+public class MultipleMotorsDemo {
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -17,12 +17,9 @@ public class MultipleMotorsDemo extends EV3DevPlatforms {
         final EV3LargeRegulatedMotor mB = new EV3LargeRegulatedMotor(MotorPort.B);
 
         //To Stop the motor in case of pkill java for example
-        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-            public void run() {
-                mA.stop();
-                mB.stop();
-                System.out.println(Battery.getInstance().getVoltage());
-            }
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            mA.stop();
+            mB.stop();
         }));
 
         mA.brake();

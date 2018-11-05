@@ -1,5 +1,6 @@
-package ev3dev.sensors.mindsensors;
+package examples.sensors.mindsensors;
 
+import ev3dev.sensors.mindsensors.AbsoluteIMU;
 import lejos.hardware.port.SensorPort;
 import lejos.robotics.SampleProvider;
 import lejos.utility.Delay;
@@ -23,7 +24,7 @@ public class AbsoluteIMUCompassTest {
         float[] sample = new float[sampleSize];
 
         // Takes some samples and prints them
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 50; i++) {
             sp.fetchSample(sample, 0);
 
             System.out.println("N={} Sample={}" + i + " " +  sample[0]);

@@ -1,14 +1,16 @@
-package ev3dev.actuators.lego.motors;
+package examples.actuators;
 
+import ev3dev.actuators.lego.motors.NXTRegulatedMotor;
 import lejos.hardware.port.MotorPort;
+import lejos.robotics.RegulatedMotor;
 import lejos.utility.Delay;
 
-public class LargeMotorStopModesExample {
+public class NXTRegulatedMotorStopModesExample {
 
     public static void main(String[] args) throws InterruptedException {
 
         System.out.println("Starting motors on A");
-        final EV3LargeRegulatedMotor mA = new EV3LargeRegulatedMotor(MotorPort.A);
+        final RegulatedMotor mA = new NXTRegulatedMotor(MotorPort.A);
         mA.setSpeed(500);
 
         System.out.println("Testing brake stop mode");

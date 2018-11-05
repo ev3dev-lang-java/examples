@@ -1,4 +1,4 @@
-package ev3dev.sensors.mindsensors;
+package examples.sensors.mindsensors;
 
 import ev3dev.sensors.mindsensors.NXTCamV5;
 import lejos.hardware.port.SensorPort;

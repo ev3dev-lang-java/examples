@@ -1,5 +1,6 @@
-package ev3dev.sensors.ev3;
+package examples.sensors.ev3;
 
+import ev3dev.sensors.ev3.EV3ColorSensor;
 import lejos.hardware.port.SensorPort;
 import lejos.robotics.SampleProvider;
 
@@ -9,7 +10,6 @@ public class ColorSensorDemo2 {
 	private static EV3ColorSensor color1 = new EV3ColorSensor(SensorPort.S1);
 	
 	//Configuration
-	private static int HALF_SECOND = 500;
     private static SampleProvider sp;
 
     public static void main(String[] args) {

@@ -1,7 +1,8 @@
-package ev3dev.sensors.ev3;
+package examples.sensors.ev3;
 
 import ev3dev.actuators.lego.motors.EV3LargeRegulatedMotor;
 import ev3dev.sensors.Battery;
+import ev3dev.sensors.ev3.EV3IRSensor;
 import lejos.hardware.port.MotorPort;
 import lejos.hardware.port.SensorPort;
 import lejos.robotics.SampleProvider;
@@ -29,8 +30,8 @@ public class IRSensorDemo4 {
 			}
 		}));
 
-		//mA.brake();
-		//mB.brake();
+		mA.brake();
+		mB.brake();
 
 		mA.setSpeed(300);
 		mB.setSpeed(300);
@@ -72,7 +73,7 @@ public class IRSensorDemo4 {
 			}else if(beaconInfo1 == 3){
 				mB.forward();
 			}else if(beaconInfo1 == 4){
-				mB.forward();
+				mB.backward();
 			}else if(beaconInfo1 == 5){
 				mA.forward();
 				mB.forward();

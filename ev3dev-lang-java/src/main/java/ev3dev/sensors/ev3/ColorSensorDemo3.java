@@ -1,10 +1,13 @@
-package ev3dev.sensors.ev3;
+package examples.sensors.ev3;
 
+import ev3dev.sensors.ev3.EV3ColorSensor;
 import lejos.hardware.port.SensorPort;
 import lejos.robotics.Color;
 import lejos.robotics.SampleProvider;
 import lejos.utility.Delay;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class ColorSensorDemo3 {
 
 	//Robot Configuration
@@ -16,14 +19,11 @@ public class ColorSensorDemo3 {
 	public static void main(String[] args) {
 
 		//Color ID
-		System.out.println("Switching to Color ID Mode");
+		LOGGER.info("Switching to Color ID Mode");
 		SampleProvider sp = color1.getColorIDMode();
 		
 		int sampleSize = sp.sampleSize();
 		float[] sample = new float[sampleSize];
-
-		System.out.println("Switching to Color ID Mode");
-		sp = color1.getColorIDMode();
 
 		int value = 0;
 
@@ -32,12 +32,12 @@ public class ColorSensorDemo3 {
         	sp.fetchSample(sample, 0);
 			value = (int)sample[0];
 
-			System.out.println("N={} Sample={}" + i +  value);
+			LOGGER.info("N={} Sample={}" + i +  value);
             
             Delay.msDelay(HALF_SECOND);
 
 			if(value == Color.BLUE){
-				System.out.println("Blue ball found");
+				LOGGER.info("Blue ball found");
 				break;
 			}
         }

@@ -1,8 +1,11 @@
-package ev3dev.actuators.lego.motors;
+package examples.actuators;
 
+import ev3dev.actuators.lego.motors.EV3LargeRegulatedMotor;
 import lejos.hardware.port.MotorPort;
 import lejos.utility.Delay;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class LargeMotorDemo2 {
 
     public static void main(String[] args) throws InterruptedException {

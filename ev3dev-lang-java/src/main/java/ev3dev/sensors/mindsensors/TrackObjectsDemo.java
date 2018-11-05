@@ -1,4 +1,4 @@
-package ev3dev.sensors.mindsensors;
+package examples.sensors.mindsensors;
 
 import ev3dev.actuators.Sound;
 import ev3dev.sensors.Button;
@@ -18,7 +18,7 @@ public class TrackObjectsDemo {
         final NXTCamV5 camera = new NXTCamV5(SensorPort.S1);
 
         int counter = 0;
-        while (Button.ESCAPE.isUp()) {
+        while (Button.ENTER.isUp()) {
             counter++;
             System.out.println("Iteration: " + counter);
 

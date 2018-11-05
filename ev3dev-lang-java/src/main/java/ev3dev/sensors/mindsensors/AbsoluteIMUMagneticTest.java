@@ -1,5 +1,6 @@
-package ev3dev.sensors.mindsensors;
+package examples.sensors.mindsensors;
 
+import ev3dev.sensors.mindsensors.AbsoluteIMU;
 import lejos.hardware.port.SensorPort;
 import lejos.robotics.SampleProvider;
 import lejos.utility.Delay;

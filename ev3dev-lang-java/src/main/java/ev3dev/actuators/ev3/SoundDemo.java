@@ -1,5 +1,6 @@
-package ev3dev.actuators;
+package examples.actuators.ev3;
 
+import ev3dev.actuators.Sound;
 import ev3dev.utils.JarResource;
 import lejos.utility.Delay;
 
@@ -30,6 +31,11 @@ public class SoundDemo {
 		File file = new File(filePath);
 		sound.playSample(file);
 
+		sound.playSample(file, 50);
+		sound.playSample(file, 100);
+		sound.playSample(file, 50);
+		sound.playSample(file, 100);
+
 		sound.beep();
 		sound.twoBeeps();
 		
@@ -38,7 +44,13 @@ public class SoundDemo {
 		for(int i = FREQ1; i <= FREQ2; i += variation) {
 			sound.playTone(i, 500, 100);
 		}
-		
+
+		int volume = 0;
+		for(int i = FREQ1; i <= FREQ2; i += variation) {
+			volume += variation;
+			sound.playTone(i, 500, volume);
+		}
+
 		sound.playTone(300, 500);
 	}
 

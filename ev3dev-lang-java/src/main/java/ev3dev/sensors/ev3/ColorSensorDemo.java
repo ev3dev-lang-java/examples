@@ -1,9 +1,12 @@
-package ev3dev.sensors.ev3;
+package examples.sensors.ev3;
 
+import ev3dev.sensors.ev3.EV3ColorSensor;
 import lejos.hardware.port.SensorPort;
 import lejos.robotics.SampleProvider;
 import lejos.utility.Delay;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class ColorSensorDemo {
 
 	//Robot Configuration
@@ -15,7 +18,7 @@ public class ColorSensorDemo {
 	public static void main(String[] args) {
 
 		//Red Mode
-		System.out.println("Switching to Red Mode");
+		LOGGER.info("Switching to Red Mode");
 		SampleProvider sp = color1.getRedMode();
 		
 		int sampleSize = sp.sampleSize();
@@ -24,13 +27,13 @@ public class ColorSensorDemo {
         // Takes some samples and prints them
         for (int i = 0; i < 10; i++) {
         	sp.fetchSample(sample, 0);
-			System.out.println("N=" + i + " Sample=" +  (int)sample[0]);
+			LOGGER.info("N=" + i + " Sample=" +  (int)sample[0]);
             
             Delay.msDelay(HALF_SECOND);
         }
 
         //Color ID
-		System.out.println("Switching to Color ID Mode");
+		LOGGER.info("Switching to Color ID Mode");
 		sp = color1.getColorIDMode();
 		
 		sampleSize = sp.sampleSize();
@@ -39,13 +42,13 @@ public class ColorSensorDemo {
         // Takes some samples and prints them
         for (int i = 0; i < 10; i++) {
         	sp.fetchSample(sample, 0);
-			System.out.println("N=" + i + " Sample={}" +  (int)sample[0]);
+			LOGGER.info("N=" + i + " Sample={}" +  (int)sample[0]);
             
             Delay.msDelay(HALF_SECOND);
         }
 
         //Ambient Mode
-		System.out.println("Switching to Ambient Mode");
+		LOGGER.info("Switching to Ambient Mode");
 		sp = color1.getAmbientMode();
 		
 		sampleSize = sp.sampleSize();
@@ -54,13 +57,13 @@ public class ColorSensorDemo {
         // Takes some samples and prints them
         for (int i = 0; i < 10; i++) {
         	sp.fetchSample(sample, 0);
-			System.out.println("N=" + i + " Sample={}" +  (int)sample[0]);
+			LOGGER.info("N=" + i + " Sample={}" +  (int)sample[0]);
 
             Delay.msDelay(HALF_SECOND);
         }
 		
 		//RGB
-		System.out.println("Switching to RGB Mode");
+		LOGGER.info("Switching to RGB Mode");
 		sp = color1.getRGBMode();
 		
 		sampleSize = sp.sampleSize();
@@ -69,9 +72,9 @@ public class ColorSensorDemo {
         // Takes some samples and prints them
         for (int i = 0; i < 10; i++) {
         	sp.fetchSample(sample, 0);
-			System.out.println("N=" + i + " Sample={}" + (int)sample[0]);
-			System.out.println("N=" + i + " Sample={}" + (int)sample[1]);
-			System.out.println("N=" + i + " Sample={}" + (int)sample[2]);
+			LOGGER.info("N=" + i + " Sample={}" + (int)sample[0]);
+			LOGGER.info("N=" + i + " Sample={}" + (int)sample[1]);
+			LOGGER.info("N=" + i + " Sample={}" + (int)sample[2]);
 
             Delay.msDelay(HALF_SECOND);
         }

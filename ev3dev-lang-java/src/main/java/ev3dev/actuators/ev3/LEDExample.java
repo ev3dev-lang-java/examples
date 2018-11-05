@@ -1,8 +1,11 @@
-package ev3dev.actuators.ev3;
+package examples.actuators.ev3;
 
+import ev3dev.actuators.ev3.EV3Led;
 import lejos.hardware.LED;
 import lejos.utility.Delay;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class LEDExample {
 
     /**
@@ -10,7 +13,7 @@ public class LEDExample {
      */
     public static void main(String[] args) {
 
-        System.out.println("Example using EV3 Led");
+        LOGGER.info("Example using EV3 Led");
 
         LED led = new EV3Led(EV3Led.LEFT);
         led.setPattern(0);

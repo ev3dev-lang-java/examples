@@ -1,12 +1,13 @@
-package ev3dev.actuators.lego.motors;
+package examples.actuators;
 
+import ev3dev.actuators.lego.motors.EV3LargeRegulatedMotor;
 import lejos.hardware.port.MotorPort;
 import lejos.utility.Delay;
 
 public class UnregulatedMotorDemo2 {
 
 	//Robot Definition
-	private static EV3LargeRegulatedMotor umotor1 = new EV3LargeRegulatedMotor(MotorPort.C);
+	private static EV3LargeRegulatedMotor umotor1 = new EV3LargeRegulatedMotor(MotorPort.A);
 
     //Configuration
     private final static int motorPower = 30;

@@ -1,5 +1,6 @@
-package ev3dev.actuators.lego.motors;
+package examples.actuators;
 
+import ev3dev.actuators.lego.motors.EV3MediumRegulatedMotor;
 import lejos.hardware.port.MotorPort;
 import lejos.utility.Delay;
 

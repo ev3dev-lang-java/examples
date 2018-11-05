@@ -1,14 +1,15 @@
-package ev3dev.actuators.lego.motors;
+package examples.actuators;
 
+import ev3dev.actuators.lego.motors.EV3LargeRegulatedMotor;
 import lejos.hardware.port.MotorPort;
 import lejos.utility.Delay;
 
-public class MediumMotorStopModesExample {
+public class LargeMotorStopModesExample {
 
     public static void main(String[] args) throws InterruptedException {
 
         System.out.println("Starting motors on A");
-        final EV3MediumRegulatedMotor mA = new EV3MediumRegulatedMotor(MotorPort.A);
+        final EV3LargeRegulatedMotor mA = new EV3LargeRegulatedMotor(MotorPort.A);
         mA.setSpeed(500);
 
         System.out.println("Testing brake stop mode");

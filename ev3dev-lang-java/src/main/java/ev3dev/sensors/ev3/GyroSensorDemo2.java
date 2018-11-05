@@ -1,5 +1,6 @@
-package ev3dev.sensors.ev3;
+package examples.sensors.ev3;
 
+import ev3dev.sensors.ev3.EV3GyroSensor;
 import lejos.hardware.port.SensorPort;
 import lejos.robotics.SampleProvider;
 

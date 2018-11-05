@@ -1,10 +1,11 @@
-package ev3dev.sensors;
+package examples.sensors;
 
-import ev3dev.hardware.EV3DevPlatform;
-import ev3dev.hardware.EV3DevPlatforms;
+import ev3dev.sensors.Battery;
 import lejos.utility.Delay;
+import lombok.extern.slf4j.Slf4j;
 
-public class BatteryDemo extends EV3DevPlatforms {
+@Slf4j
+public class BatteryDemo {
 
 	public static void main(String[] args) {
 
@@ -13,11 +14,7 @@ public class BatteryDemo extends EV3DevPlatforms {
         final Battery battery = Battery.getInstance();
 
 		for(int x = 0; x < 20; x++){
-			System.out.println("Battery Voltage: " + battery.getVoltage());
-
-			if(example.getPlatform().equals(EV3DevPlatform.EV3BRICK)) {
-				System.out.println("Battery Current: " + battery.getBatteryCurrent());
-			}
+			LOGGER.info("Battery Voltage: " + battery.getVoltage());
 
 			Delay.msDelay(1000);
 		}

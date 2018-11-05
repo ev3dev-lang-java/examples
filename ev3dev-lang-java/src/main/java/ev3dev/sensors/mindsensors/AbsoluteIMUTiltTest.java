@@ -1,5 +1,6 @@
-package ev3dev.sensors.mindsensors;
+package examples.sensors.mindsensors;
 
+import ev3dev.sensors.mindsensors.AbsoluteIMU;
 import lejos.hardware.port.SensorPort;
 import lejos.robotics.SampleProvider;
 import lejos.utility.Delay;
@@ -83,7 +84,7 @@ import lejos.utility.Delay;
  *      >Mindsensors IMU user guide"> Sensor Product page </a>
  * See <a href="http://sourceforge.net/p/lejos/wiki/Sensor%20Framework/"> The
  *      leJOS sensor framework</a>
- * See {@link lejos.robotics.SampleProvider leJOS conventions for
+ * See {@link SampleProvider leJOS conventions for
  *      SampleProviders}
  *
  *      <p>

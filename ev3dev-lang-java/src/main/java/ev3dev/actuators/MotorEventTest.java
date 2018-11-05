@@ -1,16 +1,19 @@
-package ev3dev.actuators.lego.motors;
+package examples.actuators;
 
 
+import ev3dev.actuators.lego.motors.NXTRegulatedMotor;
 import lejos.hardware.port.MotorPort;
 import lejos.robotics.RegulatedMotor;
 import lejos.robotics.RegulatedMotorListener;
 import lejos.utility.Delay;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class MotorEventTest {
 
     public static void main(String[] args) {
 
-        System.out.println("Testing events with Motors");
+        LOGGER.info("Testing events with Motors");
 
         // Listener to stop motors if they get stalled
         final RegulatedMotorListener listener = new RegulatedMotorListener() {
@@ -22,7 +25,7 @@ public class MotorEventTest {
                     final boolean stalled,
                     final long timeStamp) {
 
-                System.out.println("Started");
+                LOGGER.info("Started");
             }
 
             @Override
@@ -32,14 +35,17 @@ public class MotorEventTest {
                 final boolean stalled,
                 final long timeStamp) {
 
-                System.out.println("Stopped");
+                LOGGER.info("Stopped");
             }
         };
 
         final RegulatedMotor mA = new NXTRegulatedMotor(MotorPort.A);
+        mA.coast();
+
         mA.addListener(listener);
+
         mA.forward();
-        Delay.msDelay(500);
+        Delay.msDelay(1500);
         mA.stop();
 
     }

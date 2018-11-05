@@ -1,33 +1,38 @@
-package ev3dev.sensors;
+package examples.sensors;
 
+import ev3dev.sensors.Button;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class ButtonExample2 {
 
     public static void main(final String[] args){
-        System.out.println("Extended Button Example");
+        LOGGER.info("Extended Button Example");
 
-        System.out.println("Press UP");
+        LOGGER.info("Press UP");
         Button.UP.waitForPress();
-        System.out.println("Pressed UP");
+        LOGGER.info("Pressed UP");
 
-        System.out.println("Press DOWN");
+        LOGGER.info("Press DOWN");
         Button.DOWN.waitForPress();
-        System.out.println("Pressed DOWN");
+        LOGGER.info("Pressed DOWN");
 
-        System.out.println("Press LEFT");
+        LOGGER.info("Press LEFT");
         Button.LEFT.waitForPress();
-        System.out.println("Pressed LEFT");
+        LOGGER.info("Pressed LEFT");
 
-        System.out.println("Press RIGHT");
+        LOGGER.info("Press RIGHT");
         Button.RIGHT.waitForPress();
-        System.out.println("Pressed RIGHT");
+        LOGGER.info("Pressed RIGHT");
 
-        System.out.println("Press ESCAPE");
-        Button.ESCAPE.waitForPress();
-        System.out.println("Pressed ESCAPE");
+        //Brick run use ESCAPE button to exit the program
+        //LOGGER.info("Press ESCAPE");
+        //Button.ESCAPE.waitForPress();
+        //LOGGER.info("Pressed ESCAPE");
 
-        System.out.println("Press ENTER");
+        LOGGER.info("Press ENTER");
         Button.ENTER.waitForPress();
-        System.out.println("Pressed ENTER");
+        LOGGER.info("Pressed ENTER");
 
     }
 }
