@@ -1,6 +1,7 @@
 rootProject.name = 'examples'
 
 include 'demo'
+include 'demo-2.4.16'
 include 'helloWorldKotlin'
 include 'mbeans'
 include 'opencv'

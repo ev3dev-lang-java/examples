@@ -72,10 +72,10 @@ public @Slf4j class DemoStop {
                     sp.fetchSample(sample, 0);
                     int value = (int)sample[0];
 
-                    log.info("Gyro angle/rate: {}", value);
+                    LOGGER.info("Gyro angle/rate: {}", value);
 
                     if(value >= 45){
-                        log.info("Rotated 45 degrees");
+                        LOGGER.info("Rotated 45 degrees");
                         mA.stop();
                         break;
                     }
