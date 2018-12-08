@@ -1,74 +1,14 @@
-//Gradle file library ev3dev-lang-java / examples
-//Author: Juan Antonio Breña Moral
-
-version = '0.7.0'
-
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'idea'
-
 repositories {
     mavenCentral()
     maven { url 'https://jitpack.io' }
 }
 
 dependencies {
-    compile("com.github.ev3dev-lang-java:ev3dev-lang-java:0.7.0")
-    compile("com.github.ev3dev-lang-java:lejos-navigation:0.2.0")
 
     compile("ch.qos.logback:logback-classic:1.2.3")
-}
 
-//Wrapper
-task wrapper(type: Wrapper) {
-    description = 'Generates gradlew[.bat] scripts'
-    gradleVersion = '3.5'
-}
-
-
-//Compile
-compileJava {
-    sourceCompatibility = 1.8
-    targetCompatibility = 1.8
-}
-
-//Jar
-jar {
-    baseName = "${rootProject.name}"
-    manifest {
-        from file("${projectDir}/src/main/resources/META-INF/MANIFEST.MF")
-    }
-}
-
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.0'
-    }
-}
-
-//Fat Jar
-apply plugin: 'com.github.johnrengelman.shadow'
-
-task fatJar << {
+    annotationProcessor("org.projectlombok:lombok:1.16.20")
+    compileOnly("org.projectlombok:lombok:1.16.20")
+    testCompileOnly("org.projectlombok:lombok:1.16.20")
 
 }
-fatJar.dependsOn shadowJar
-
-
-//Deploy on Brick
-buildscript {
-    repositories {
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
-    }
-    dependencies {
-        classpath "org.hidetake:gradle-ssh-plugin:2.0.0"
-    }
-}
-apply plugin: 'org.hidetake.ssh'
-
-apply from: 'deploy.gradle'

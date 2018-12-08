@@ -1,8 +1,10 @@
 package ev3dev.actuators.lcd;
 
-import ev3dev.actuators.ev3.lcd.EV3GraphicsLCD;
+import ev3dev.actuators.LCD;
 import lejos.hardware.lcd.GraphicsLCD;
-import org.jcodec.api.awt.AWTFrameGrab8Bit;
+import org.jcodec.api.FrameGrab;
+import org.jcodec.common.model.Picture;
+import org.jcodec.scale.AWTUtil;
 
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
@@ -13,7 +15,7 @@ import java.util.List;
 
 public class VideoTest {
 
-    public static GraphicsLCD lcd = new EV3GraphicsLCD();
+    public static GraphicsLCD lcd = LCD.getInstance();
 
     public static void main(final String[] args) throws Exception {
 
@@ -24,7 +26,8 @@ public class VideoTest {
         List<BufferedImage> list = new ArrayList<>();
 
         for (int i = 0; i < 20; i++) {
-            BufferedImage image = AWTFrameGrab8Bit.getFrame(new File("giphy.mp4"), i*6);
+            Picture pic = FrameGrab.getFrameFromFile(new File("giphy.mp4"), i*6);
+            BufferedImage image = AWTUtil.toBufferedImage(pic);
 
             int w = image.getWidth();
             int h = image.getHeight();

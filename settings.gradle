@@ -1,0 +1,9 @@
+rootProject.name = 'examples'
+
+include 'demo'
+include 'helloWorldKotlin'
+include 'mbeans'
+include 'opencv'
+include 'rosjava-helloworld'
+include 'video'
+include 'ev3dev-lang-java'

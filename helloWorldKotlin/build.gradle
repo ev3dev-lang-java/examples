@@ -1,35 +1,10 @@
 
-//FatJar
-//Deploy on Brick
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.0'
-        classpath "org.hidetake:gradle-ssh-plugin:2.0.0"
-    }
-}
-
 plugins {
     id "org.jetbrains.kotlin.jvm" version "1.1.3"
 }
 
-apply plugin: 'eclipse'
-apply plugin: 'idea'
-
-version = '0.1.0'
-
-repositories {
-    mavenCentral()
-    maven { url 'https://jitpack.io' }
-}
-
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib"
-
-    compile("com.github.ev3dev-lang-java:ev3dev-lang-java:v0.6.1")
-    compile("com.github.ev3dev-lang-java:lejos-navigation:v0.1.0")
 
     compile("ch.qos.logback:logback-classic:1.2.3")
 
@@ -37,31 +12,3 @@ dependencies {
     testCompile "org.jetbrains.kotlin:kotlin-test-junit"
 
 }
-
-//Wrapper
-task wrapper(type: Wrapper) {
-    description = 'Generates gradlew[.bat] scripts'
-    gradleVersion = '3.5'
-}
-
-//Jar
-jar {
-    baseName = "${rootProject.name}"
-    manifest {
-        from file("${projectDir}/src/main/resources/META-INF/MANIFEST.MF")
-    }
-}
-
-//Fat Jar
-apply plugin: 'com.github.johnrengelman.shadow'
-
-task fatJar << {
-
-}
-fatJar.dependsOn shadowJar
-
-apply plugin: 'org.hidetake.ssh'
-
-apply from: 'deploy.gradle'
-
-

@@ -65,5 +65,4 @@ task deployAndProfilingSudoRun << {
 }
 deployAndProfilingSudoRun.dependsOn deploy, remoteProfilingSudoRun
 
-apply from: 'config.gradle'
 

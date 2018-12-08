@@ -1,0 +1,48 @@
+//Gradle file library ev3dev-lang-java / examples
+//Author: Juan Antonio Breña Moral
+
+allprojects {
+    version = "2.4.16"
+
+    repositories {
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+    apply plugin: 'idea'
+
+    dependencies {
+        compile("com.github.ev3dev-lang-java:ev3dev-lang-java:2.4.16")
+        compile("com.github.ev3dev-lang-java:lejos-navigation:0.2.0")
+
+        compile("ch.qos.logback:logback-classic:1.2.3")
+    }
+
+
+    //Compile
+    compileJava {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
+    //Jar
+    jar {
+        baseName = "${rootProject.name}"
+        manifest {
+            from file("${projectDir}/src/main/resources/META-INF/MANIFEST.MF")
+        }
+    }
+
+    buildscript {
+        repositories {
+            jcenter()
+        }
+        dependencies {
+            classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.0'
+        }
+    }
+
+}
+

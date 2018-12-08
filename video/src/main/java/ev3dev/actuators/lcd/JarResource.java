@@ -43,9 +43,9 @@ public @Slf4j class JarResource {
     public static void delete(final String resourceName){
         final File file = new File(resourceName);
         if(file.delete()){
-            log.info("{} is deleted!", file.getName());
+            LOGGER.info("{} is deleted!", file.getName());
         }else{
-            log.trace("Delete operation is failed.");
+            LOGGER.trace("Delete operation is failed.");
         }
 
     }
