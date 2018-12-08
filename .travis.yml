@@ -1,6 +1,6 @@
 language: java
 jdk:
-  - openjdk10
+  - oraclejdk8
 before_install:
   - chmod +x gradlew
 notifications:
