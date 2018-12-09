@@ -6,4 +6,9 @@ dependencies {
     //compile("com.github.ev3dev-lang-java:RPLidar4J:v0.3.2-SNAPSHOT")
     //compile group: 'javazoom', name: 'jlayer', version: '1.0.1'
 
+    annotationProcessor("org.projectlombok:lombok:1.16.20")
+    compileOnly("org.projectlombok:lombok:1.16.20")
+    testCompileOnly("org.projectlombok:lombok:1.16.20")
+
+
 }

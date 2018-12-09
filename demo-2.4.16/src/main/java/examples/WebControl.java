@@ -1,5 +1,6 @@
 package examples;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -7,10 +8,10 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-
+@Slf4j
 public class WebControl {
 
-  public static Logger LOGGER = LoggerFactory.getLogger(WebControl.class);
+  //public static Logger LOGGER = LoggerFactory.getLogger(WebControl.class);
 
   public static final int PORT = 9000;
   private ServerSocket ss;

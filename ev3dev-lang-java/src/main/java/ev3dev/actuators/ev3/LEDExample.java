@@ -1,6 +1,5 @@
-package examples.actuators.ev3;
+package ev3dev.actuators.ev3;
 
-import ev3dev.actuators.ev3.EV3Led;
 import lejos.hardware.LED;
 import lejos.utility.Delay;
 import lombok.extern.slf4j.Slf4j;

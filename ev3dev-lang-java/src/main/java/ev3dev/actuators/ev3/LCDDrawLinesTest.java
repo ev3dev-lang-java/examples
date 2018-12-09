@@ -1,4 +1,4 @@
-package examples.actuators.ev3;
+package ev3dev.actuators.ev3;
 
 import ev3dev.actuators.LCD;
 import ev3dev.hardware.EV3DevDistro;
