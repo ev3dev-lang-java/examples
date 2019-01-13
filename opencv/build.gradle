@@ -1,3 +1,4 @@
+version = '2.1.0-SNAPSHOT'
 
 // In this section you declare the dependencies for your production and test code
 dependencies {
@@ -12,4 +13,14 @@ dependencies {
     testCompileOnly("org.projectlombok:lombok:1.16.20")
 
     testCompile 'junit:junit:4.12'
+}
+
+jar {
+    manifest {
+        attributes("Implementation-Title": "EV3Dev-lang-java / OpenCV Samples",
+                   "Implementation-Version": project.version,
+                   "Implementation-Vendor": "Juan Antonio Breña Moral",
+                   "Main-Class": brick.pref.mainClass,
+                   "Class-Path": brick.getClassPath(true) )
+    }
 }
