@@ -5,6 +5,9 @@ ev3dev-lang-java libraries.
 
 ## Checking it out
 
+Before proceeding further, you need to change the brick connection parameters
+in the `config.gradle` file in the main directory.
+
 You can build the project and upload all programs with their dependencies with these commands:
 ```sh
 ./gradlew uploadGradleLibraries
