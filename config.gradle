@@ -13,3 +13,7 @@ brick.build {
         return Paths.get(proj.rootProject.projectDir.toString(), "gradle", "splash.txt")
     }
 }
+
+brick.paths {
+    wrapperDir = "/home/robot/examples"
+}
