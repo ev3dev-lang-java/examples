@@ -1,0 +1,11 @@
+version = '0.1.0'
+
+jar {
+    manifest {
+        attributes("Implementation-Title": "EV3Dev-lang-java / MBeans Samples",
+                   "Implementation-Version": project.version,
+                   "Implementation-Vendor": "Juan Antonio Breña Moral",
+                   "Main-Class": brick.pref.mainClass,
+                   "Class-Path": brick.getClassPath(true) )
+    }
+}
