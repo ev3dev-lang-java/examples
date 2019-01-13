@@ -1,3 +1,5 @@
+version = '0.1.0'
+
 repositories {
     mavenCentral()
     maven { url "https://jitpack.io" }
@@ -24,4 +26,14 @@ dependencies {
     compile("commons-codec:commons-codec:1.9")
     compile("commons-httpclient:commons-httpclient:3.1")
 
+}
+
+jar {
+    manifest {
+        attributes("Implementation-Title": "EV3Dev-lang-java / rosjava HelloWorld",
+                   "Implementation-Version": project.version,
+                   "Implementation-Vendor": "Juan Antonio Breña Moral",
+                   "Main-Class": brick.pref.mainClass,
+                   "Class-Path": brick.getClassPath(true) )
+    }
 }
