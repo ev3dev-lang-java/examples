@@ -6,6 +6,9 @@ brick.pref {
     sshHost = "10.0.0.89"
     sshUser = "robot"
     sshPassword = "maker"
+
+    // Do not use stuff embedded in manifest (for easier main class changes)
+    useEmbeddedPaths = false
 }
 
 brick.build {

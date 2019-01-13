@@ -20,6 +20,9 @@ Alternatively, you can also work only with one project at a time:
 ./gradlew :opencv:deployRun # only upload and run 'opencv' project
 ```
 
+To change the class to be run in some example project, modify its `config.gradle` file.
+If you run want to run the program from ev3dev menu, you will have to reupload it.
+
 To remove all samples from the brick, just run:
 ```sh
 ./gradlew undeploy
