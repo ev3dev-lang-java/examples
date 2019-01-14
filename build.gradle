@@ -1,7 +1,22 @@
 //Gradle file library ev3dev-lang-java / examples
 //Author: Juan Antonio Breña Moral
 
-allprojects {
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        maven { url "https://jitpack.io" }
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.0'
+        classpath "com.github.ev3dev-lang-java:gradle-plugin:1.6.4"
+    }
+}
+
+subprojects {
     version = "2.4.16"
 
     repositories {
@@ -12,6 +27,9 @@ allprojects {
     apply plugin: 'java'
     apply plugin: 'eclipse'
     apply plugin: 'idea'
+    apply plugin: 'com.github.ev3dev-lang-java.gradle-plugin'
+    apply from: "${rootProject.projectDir}/config.gradle"
+    apply from: "${project.projectDir}/config.gradle"
 
     dependencies {
         compile("com.github.ev3dev-lang-java:ev3dev-lang-java:2.5.3")

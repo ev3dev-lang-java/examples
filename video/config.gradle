@@ -1,0 +1,5 @@
+// Subproject configuration
+brick.pref {
+    // Main class //
+    mainClass = "ev3dev.actuators.lcd.VideoTest"
+}

@@ -1,0 +1,6 @@
+// Subproject configuration
+brick.pref {
+    // Main class //
+    mainClass = "example.opencv.HelloWorldCV"
+    libOpenCV = true
+}

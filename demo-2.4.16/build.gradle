@@ -1,3 +1,4 @@
+version = '0.1.0-SNAPSHOT'
 
 dependencies {
     //compile group: 'com.github.ev3dev-lang-java', name: 'ev3dev-lang-java', version: '2.4.16'
@@ -11,4 +12,14 @@ dependencies {
     testCompileOnly("org.projectlombok:lombok:1.16.20")
 
 
+}
+
+jar {
+    manifest {
+        attributes("Implementation-Title": "EV3Dev-lang-java / Demos for 2.4.16",
+                   "Implementation-Version": project.version,
+                   "Implementation-Vendor": "Juan Antonio Breña Moral",
+                   "Main-Class": brick.pref.mainClass,
+                   "Class-Path": brick.getClassPath(true) )
+    }
 }
