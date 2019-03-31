@@ -10,22 +10,21 @@ repositories {
 }
 
 dependencies {
-    compile("org.projectlombok:lombok:1.16.8")
+    implementation("org.projectlombok:lombok:1.16.8")
 
-    compile("org.slf4j:slf4j-api:1.7.12")
-    //compile("ch.qos.logback:logback-classic:1.1.6")
-    compile("commons-logging:commons-logging:1.2")
+    implementation("org.slf4j:slf4j-api:1.7.12")
+    //implementation("ch.qos.logback:logback-classic:1.1.6")
+    implementation("commons-logging:commons-logging:1.2")
 
-    compile("com.github.ev3dev-lang-java:ev3dev-lang-java:v0.6.1")
+    implementation("com.github.ev3dev-lang-java:ev3dev-lang-java:v0.6.1")
 
-    compile("org.ros.rosjava_core:rosjava:[0.2,0.3)")
-    compile("org.ros.rosjava_messages:std_msgs:[0.1,)")
-    compile("org.ros.rosjava_messages:sensor_msgs:[0.1,)")
-    compile("org.ros.rosjava_messages:geometry_msgs:[1.11,1.12)")
+    implementation("org.ros.rosjava_core:rosjava:[0.2,0.3)")
+    implementation("org.ros.rosjava_messages:std_msgs:[0.1,)")
+    implementation("org.ros.rosjava_messages:sensor_msgs:[0.1,)")
+    implementation("org.ros.rosjava_messages:geometry_msgs:[1.11,1.12)")
 
-    compile("commons-codec:commons-codec:1.9")
-    compile("commons-httpclient:commons-httpclient:3.1")
-
+    implementation("commons-codec:commons-codec:1.9")
+    implementation("commons-httpclient:commons-httpclient:3.1")
 }
 
 jar {

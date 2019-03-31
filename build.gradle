@@ -12,7 +12,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.0'
-        classpath "com.github.ev3dev-lang-java:gradle-plugin:1.6.5"
+        classpath "com.github.ev3dev-lang-java:gradle-plugin:1.6.8"
     }
 }
 
@@ -32,10 +32,10 @@ subprojects {
     apply from: "${project.projectDir}/config.gradle"
 
     dependencies {
-        compile("com.github.ev3dev-lang-java:ev3dev-lang-java:2.5.3")
-        compile("com.github.ev3dev-lang-java:lejos-navigation:0.2.0")
+        implementation("com.github.ev3dev-lang-java:ev3dev-lang-java:2.5.3")
+        implementation("com.github.ev3dev-lang-java:lejos-navigation:0.2.0")
 
-        compile("ch.qos.logback:logback-classic:1.2.3")
+        implementation("ch.qos.logback:logback-classic:1.2.3")
     }
 
     //Compile

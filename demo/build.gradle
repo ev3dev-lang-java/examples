@@ -1,9 +1,9 @@
 version = '0.1.0-SNAPSHOT'
 
 dependencies {
-    compile group: 'com.github.ev3dev-lang-java', name: 'ev3dev-lang-java', version: '0.7.0'
-    compile group: 'com.github.ev3dev-lang-java', name: 'RPLidar4J',        version: 'v0.3.2-SNAPSHOT'
-    compile group: 'javazoom',                    name: 'jlayer',           version: '1.0.1'
+    implementation group: 'com.github.ev3dev-lang-java', name: 'ev3dev-lang-java', version: '0.7.0'
+    implementation group: 'com.github.ev3dev-lang-java', name: 'RPLidar4J',        version: 'v0.3.2-SNAPSHOT'
+    implementation group: 'javazoom',                    name: 'jlayer',           version: '1.0.1'
 }
 
 jar {
