@@ -8,9 +8,9 @@ dependencies {
     implementation("org.slf4j:slf4j-api:1.7.25")
     implementation("ch.qos.logback:logback-classic:1.2.3")
 
-    annotationProcessor("org.projectlombok:lombok:1.16.20")
-    compileOnly("org.projectlombok:lombok:1.16.20")
-    testCompileOnly("org.projectlombok:lombok:1.16.20")
+    annotationProcessor("org.projectlombok:lombok:1.18.8")
+    compileOnly("org.projectlombok:lombok:1.18.8")
+    testCompileOnly("org.projectlombok:lombok:1.18.8")
 
     testImplementation 'junit:junit:4.12'
 }

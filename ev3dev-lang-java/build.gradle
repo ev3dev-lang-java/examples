@@ -9,9 +9,9 @@ dependencies {
 
     implementation("ch.qos.logback:logback-classic:1.2.3")
 
-    annotationProcessor("org.projectlombok:lombok:1.16.20")
-    compileOnly("org.projectlombok:lombok:1.16.20")
-    testCompileOnly("org.projectlombok:lombok:1.16.20")
+    annotationProcessor("org.projectlombok:lombok:1.18.8")
+    compileOnly("org.projectlombok:lombok:1.18.8")
+    testCompileOnly("org.projectlombok:lombok:1.18.8")
 
 }
 
