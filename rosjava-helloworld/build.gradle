@@ -20,8 +20,10 @@ dependencies {
 
     implementation("org.ros.rosjava_core:rosjava:[0.2,0.3)")
     implementation("org.ros.rosjava_messages:std_msgs:[0.1,)")
+    implementation("org.ros.rosjava_messages:rosjava_test_msgs:[0.1,)")
     implementation("org.ros.rosjava_messages:sensor_msgs:[0.1,)")
     implementation("org.ros.rosjava_messages:geometry_msgs:[1.11,1.12)")
+    implementation("org.ros.rosjava_bootstrap:message_generation:[0.1,)")
 
     implementation("commons-codec:commons-codec:1.9")
     implementation("commons-httpclient:commons-httpclient:3.1")
