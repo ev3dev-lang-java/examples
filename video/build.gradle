@@ -6,12 +6,12 @@ repositories {
 }
 
 dependencies {
-    compile('org.jcodec:jcodec:0.2.3')
-    compile('org.jcodec:jcodec-javase:0.2.3')
+    implementation('org.jcodec:jcodec:0.2.3')
+    implementation('org.jcodec:jcodec-javase:0.2.3')
 
-    annotationProcessor('org.projectlombok:lombok:1.16.20')
-    compileOnly("org.projectlombok:lombok:1.16.20")
-    testCompileOnly("org.projectlombok:lombok:1.16.20")
+    annotationProcessor('org.projectlombok:lombok:1.18.8')
+    compileOnly("org.projectlombok:lombok:1.18.8")
+    testCompileOnly("org.projectlombok:lombok:1.18.8")
 }
 
 jar {
