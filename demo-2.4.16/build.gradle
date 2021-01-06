@@ -1,14 +1,22 @@
+version = '0.1.0-SNAPSHOT'
 
 dependencies {
-    //compile group: 'com.github.ev3dev-lang-java', name: 'ev3dev-lang-java', version: '2.4.16'
+    //implementation group: 'com.github.ev3dev-lang-java', name: 'ev3dev-lang-java', version: '2.4.16'
 
-    compile "com.github.ev3dev-lang-java:ev3dev-lang-java:0.7.0"
-    //compile("com.github.ev3dev-lang-java:RPLidar4J:v0.3.2-SNAPSHOT")
-    //compile group: 'javazoom', name: 'jlayer', version: '1.0.1'
+    implementation "com.github.ev3dev-lang-java:ev3dev-lang-java:0.7.0"
+    //implementation("com.github.ev3dev-lang-java:RPLidar4J:v0.3.2-SNAPSHOT")
+    //implementation group: 'javazoom', name: 'jlayer', version: '1.0.1'
 
-    annotationProcessor("org.projectlombok:lombok:1.16.20")
-    compileOnly("org.projectlombok:lombok:1.16.20")
-    testCompileOnly("org.projectlombok:lombok:1.16.20")
+    annotationProcessor("org.projectlombok:lombok:1.18.8")
+    compileOnly("org.projectlombok:lombok:1.18.8")
+    testCompileOnly("org.projectlombok:lombok:1.18.8")
+}
 
-
+jar {
+    manifest {
+        attributes("Implementation-Title": "EV3Dev-lang-java / Demos for 0.7.0",
+                "Implementation-Version": project.version,
+                "Implementation-Vendor": "Juan Antonio Breña Moral"
+        )
+    }
 }

@@ -1,5 +1,0 @@
-Manifest-Version: 1.0
-Implementation-Title: EV3Dev-lang-java / examples
-Implementation-Version: 0.7.0
-Implementation-Vendor: Juan Antonio Breña Moral
-Main-Class: org.ev3dev.kotlin.HelloWorldKt

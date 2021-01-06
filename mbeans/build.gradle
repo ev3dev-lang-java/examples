@@ -1,0 +1,10 @@
+version = '0.1.0'
+
+jar {
+    manifest {
+        attributes("Implementation-Title": "EV3Dev-lang-java / Demos for 0.7.0",
+                "Implementation-Version": project.version,
+                "Implementation-Vendor": "Juan Antonio Breña Moral"
+        )
+    }
+}

@@ -1,15 +1,25 @@
+version = '2.1.0-SNAPSHOT'
 
 // In this section you declare the dependencies for your production and test code
 dependencies {
     compileOnly("nu.pattern:opencv:2.4.9-7")
-    //compile("org.openpnp:opencv:3.2.0-0")
+    //implementation("org.openpnp:opencv:3.2.0-0")
 
-    compile("org.slf4j:slf4j-api:1.7.25")
-    compile("ch.qos.logback:logback-classic:1.2.3")
+    implementation("org.slf4j:slf4j-api:1.7.25")
+    implementation("ch.qos.logback:logback-classic:1.2.3")
 
-    annotationProcessor("org.projectlombok:lombok:1.16.20")
-    compileOnly("org.projectlombok:lombok:1.16.20")
-    testCompileOnly("org.projectlombok:lombok:1.16.20")
+    annotationProcessor("org.projectlombok:lombok:1.18.8")
+    compileOnly("org.projectlombok:lombok:1.18.8")
+    testCompileOnly("org.projectlombok:lombok:1.18.8")
 
-    testCompile 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.12'
+}
+
+jar {
+    manifest {
+        attributes("Implementation-Title": "EV3Dev-lang-java / Demos for 0.7.0",
+                "Implementation-Version": project.version,
+                "Implementation-Vendor": "Juan Antonio Breña Moral"
+        )
+    }
 }

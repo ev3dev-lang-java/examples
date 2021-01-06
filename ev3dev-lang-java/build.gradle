@@ -1,3 +1,5 @@
+version = '0.6.1'
+
 repositories {
     mavenCentral()
     maven { url 'https://jitpack.io' }
@@ -5,10 +7,19 @@ repositories {
 
 dependencies {
 
-    compile("ch.qos.logback:logback-classic:1.2.3")
+    implementation("ch.qos.logback:logback-classic:1.2.3")
 
-    annotationProcessor("org.projectlombok:lombok:1.16.20")
-    compileOnly("org.projectlombok:lombok:1.16.20")
-    testCompileOnly("org.projectlombok:lombok:1.16.20")
+    annotationProcessor("org.projectlombok:lombok:1.18.8")
+    compileOnly("org.projectlombok:lombok:1.18.8")
+    testCompileOnly("org.projectlombok:lombok:1.18.8")
 
+}
+
+jar {
+    manifest {
+        attributes("Implementation-Title": "EV3Dev-lang-java / Demos for 0.7.0",
+                "Implementation-Version": project.version,
+                "Implementation-Vendor": "Juan Antonio Breña Moral"
+        )
+    }
 }

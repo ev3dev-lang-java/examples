@@ -1,3 +1,4 @@
+package lejos.commons.subsumption.ko;
 /**
 
 Technical note: 2017/06/04

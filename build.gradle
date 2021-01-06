@@ -1,7 +1,18 @@
 //Gradle file library ev3dev-lang-java / examples
 //Author: Juan Antonio Breña Moral
 
-allprojects {
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        maven { url "https://jitpack.io" }
+    }
+}
+
+subprojects {
     version = "2.4.16"
 
     repositories {
@@ -14,16 +25,16 @@ allprojects {
     apply plugin: 'idea'
 
     dependencies {
-        compile("com.github.ev3dev-lang-java:ev3dev-lang-java:2.5.3")
-        compile("com.github.ev3dev-lang-java:lejos-navigation:0.2.0")
+        implementation("com.github.ev3dev-lang-java:ev3dev-lang-java:2.5.3")
+        implementation("com.github.ev3dev-lang-java:lejos-navigation:0.2.0")
 
-        compile("ch.qos.logback:logback-classic:1.2.3")
+        implementation("ch.qos.logback:logback-classic:1.2.3")
     }
 
     //Compile
     compileJava {
-        sourceCompatibility = 1.8
-        targetCompatibility = 1.8
+        sourceCompatibility = 11
+        targetCompatibility = 11
     }
 }
 

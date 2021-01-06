@@ -1,0 +1,5 @@
+// Subproject configuration
+brick.pref {
+    // Main class //
+    mainClass = "org.ev3dev.kotlin.HelloWorldKt"
+}
