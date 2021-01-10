@@ -3,36 +3,6 @@
 This repository store a set of examples ready to use with the
 ev3dev-lang-java libraries.
 
-## Checking it out
-
-Before proceeding further, you need to change the brick connection parameters
-in the `config.gradle` file in the main directory.
-
-You can build the project and upload all programs with their dependencies with these commands:
-```sh
-./gradlew uploadGradleLibraries
-./gradlew deploy
-```
-
-You can then run them from the ev3dev menu in the `examples` subdirectory.
-
-Alternatively, you can also work only with one project at a time:
-```sh
-./gradlew :opencv:deploy    # only upload 'opencv' project
-./gradlew :opencv:run       # only run already uploaded build of 'opencv' project
-./gradlew :opencv:deployRun # only upload and run 'opencv' project
-```
-
-To change the class to be run in some example project, modify its `config.gradle` file.
-If you run want to run the program from ev3dev menu, you will have to reupload it.
-
-To remove all samples from the brick, just run:
-```sh
-./gradlew undeploy
-```
-
-## Contents
-
 Take a look the following examples to discover some features included with this Java project.
 
 **EV3Dev-lang-Java:**
